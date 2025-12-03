@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume</title>
+    <title>Portfolio</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,23 +57,26 @@
             padding: 0;
         }
         .main-nav li a {
-            color: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
             display: inline-block;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
         .main-nav li a:hover {
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            color: #425BB5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
         }
         @media (max-width: 768px) {
             .main-nav {
@@ -150,14 +153,81 @@
             }
         }
         
+        @keyframes emojiFloat1 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -50px) rotate(90deg); }
+            50% { transform: translate(-20px, -80px) rotate(180deg); }
+            75% { transform: translate(-40px, -30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes emojiFloat2 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-40px, 30px) rotate(-90deg); }
+            50% { transform: translate(50px, 60px) rotate(-180deg); }
+            75% { transform: translate(20px, -20px) rotate(-270deg); }
+            100% { transform: translate(0, 0) rotate(-360deg); }
+        }
+        
+        @keyframes emojiFloat3 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(60px, -30px) rotate(120deg); }
+            66% { transform: translate(-30px, 50px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes emojiFloat4 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-50px, -40px) rotate(-120deg); }
+            50% { transform: translate(40px, -60px) rotate(-240deg); }
+            75% { transform: translate(-20px, 40px) rotate(-360deg); }
+            100% { transform: translate(0, 0) rotate(-360deg); }
+        }
+        
+        @keyframes emojiFloat5 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            30% { transform: translate(70px, 20px) rotate(150deg); }
+            60% { transform: translate(-40px, -70px) rotate(300deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes emojiFloat6 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-60px, 50px) rotate(-150deg); }
+            40% { transform: translate(50px, -40px) rotate(-300deg); }
+            60% { transform: translate(-30px, 60px) rotate(-450deg); }
+            100% { transform: translate(0, 0) rotate(-360deg); }
+        }
+        
+        .emoji-bg {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 12px rgba(66, 91, 181, 0.4));
+            transition: opacity 0.3s ease;
+        }
+        
+        .emoji-bg:hover {
+            opacity: 0.5;
+        }
+        
+        .emoji-1 { animation: emojiFloat1 20s ease-in-out infinite; }
+        .emoji-2 { animation: emojiFloat2 25s ease-in-out infinite; }
+        .emoji-3 { animation: emojiFloat3 22s ease-in-out infinite; }
+        .emoji-4 { animation: emojiFloat4 28s ease-in-out infinite; }
+        .emoji-5 { animation: emojiFloat5 24s ease-in-out infinite; }
+        .emoji-6 { animation: emojiFloat6 26s ease-in-out infinite; }
+        
         #home {
             overflow: hidden !important;
             position: relative !important;
             width: 100% !important;
             margin-bottom: 0 !important;
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 12s ease infinite;
         }
         
         #home::before {
@@ -167,28 +237,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
                         radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
                         radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-            pointer-events: none;
-        }
-        
-        #home::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255, 255, 255, 0.03) 10px,
-                rgba(255, 255, 255, 0.03) 20px
-            );
-            animation: rotate 30s linear infinite;
             pointer-events: none;
         }
         
@@ -201,49 +252,6 @@
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
-        }
-        
-        .bg-shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-        }
-        
-        .bg-shape-1 {
-            width: 400px;
-            height: 400px;
-            background: rgba(102, 126, 234, 0.4);
-            top: -100px;
-            left: -100px;
-            animation: float 25s ease-in-out infinite;
-        }
-        
-        .bg-shape-2 {
-            width: 500px;
-            height: 500px;
-            background: rgba(118, 75, 162, 0.4);
-            bottom: -150px;
-            right: -150px;
-            animation: float 30s ease-in-out infinite reverse;
-        }
-        
-        .bg-shape-3 {
-            width: 300px;
-            height: 300px;
-            background: rgba(240, 147, 251, 0.4);
-            top: 50%;
-            right: 10%;
-            animation: pulse 8s ease-in-out infinite;
-        }
-        
-        .bg-shape-4 {
-            width: 350px;
-            height: 350px;
-            background: rgba(79, 172, 254, 0.3);
-            bottom: 20%;
-            left: 20%;
-            animation: float 22s ease-in-out infinite;
         }
         
         #home .container {
@@ -284,10 +292,14 @@
     </style>
     <div class="section" id="home" style="position: relative; width: 100%; min-height: auto; display: block; clear: both; overflow: hidden; margin: 0; padding: 0;">
         <div class="animated-bg-shapes">
-            <div class="bg-shape bg-shape-1"></div>
-            <div class="bg-shape bg-shape-2"></div>
-            <div class="bg-shape bg-shape-3"></div>
-            <div class="bg-shape bg-shape-4"></div>
+            <!-- Outside Activities Emojis -->
+            <div class="emoji-bg emoji-1" style="top: 10%; left: 15%;">⛵</div>
+            <div class="emoji-bg emoji-2" style="top: 60%; left: 5%;">🏃</div>
+            <div class="emoji-bg emoji-3" style="top: 30%; right: 10%;">⛷️</div>
+            <!-- Selected Work Emojis -->
+            <div class="emoji-bg emoji-4" style="bottom: 20%; left: 20%;">👮</div>
+            <div class="emoji-bg emoji-5" style="top: 15%; right: 25%;">🏥</div>
+            <div class="emoji-bg emoji-6" style="bottom: 15%; right: 15%;">💻</div>
         </div>
         <div class="container" style="position: relative; padding: 100px 20px 120px; z-index: 1; width: 100%; max-width: 1400px; margin: 0 auto; box-sizing: border-box; overflow: hidden;">
             <div style="width: 100%; max-width: 100%; margin: 0 auto; box-sizing: border-box; overflow: hidden;">
@@ -295,20 +307,20 @@
                 <div style="display: flex; align-items: flex-start; gap: 60px; flex-wrap: wrap; width: 100%; box-sizing: border-box; overflow: hidden;">
                     <!-- Left Side: Profile Image -->
                     <div data-aos="fade-right" data-aos-delay="0" style="flex: 0 0 auto; text-align: center; width: 100%; max-width: 320px; margin: 0 auto 40px; box-sizing: border-box;">
-                        <img src="img/self.jpg" alt="Jackson Song" class="home-image" style="width: 320px; height: 320px; max-width: 100%; border-radius: 50%; object-fit: cover; border: 6px solid rgba(255, 255, 255, 0.3); transition: transform 0.3s ease; box-sizing: border-box; margin-bottom: 30px;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-                        <a href="CV.pdf" download="Jackson_Song_CV.pdf" onclick="event.preventDefault(); const link = document.createElement('a'); link.href = 'CV.pdf'; link.download = 'Jackson_Song_CV.pdf'; document.body.appendChild(link); link.click(); document.body.removeChild(link);" style="display: inline-block; padding: 14px 32px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.4); border-radius: 50px; color: white; font-size: 16px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); letter-spacing: 0.5px; position: relative; overflow: hidden;">
+                        <img src="img/self.jpg" alt="Jackson Song" class="home-image" style="width: 320px; height: 320px; max-width: 100%; border-radius: 50%; object-fit: cover; border: 6px solid rgba(66, 91, 181, 0.3); box-shadow: 0 8px 24px rgba(66, 91, 181, 0.2); transition: transform 0.3s ease; box-sizing: border-box; margin-bottom: 30px;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+                        <a href="CV.pdf" download="Jackson_Song_CV.pdf" onclick="event.preventDefault(); const link = document.createElement('a'); link.href = 'CV.pdf'; link.download = 'Jackson_Song_CV.pdf'; document.body.appendChild(link); link.click(); document.body.removeChild(link);" style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #425BB5, #667eea); backdrop-filter: blur(10px); border: 2px solid #425BB5; border-radius: 50px; color: white; font-size: 16px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(66, 91, 181, 0.4); letter-spacing: 0.5px; position: relative; overflow: hidden;">
                             <span style="position: relative; z-index: 1; display: flex; align-items: center; gap: 8px;">
                                 <i class="ion-ios-download" style="font-size: 18px;"></i>
                                 Download My CV
                             </span>
-                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.3); transition: left 0.3s ease; z-index: 0;"></span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.2); transition: left 0.3s ease; z-index: 0;"></span>
                         </a>
                         <style>
                             a[href="CV.pdf"]:hover {
-                                background: rgba(255, 255, 255, 0.3) !important;
-                                border-color: rgba(255, 255, 255, 0.6) !important;
+                                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                                border-color: #667eea !important;
                                 transform: translateY(-2px);
-                                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+                                box-shadow: 0 6px 20px rgba(66, 91, 181, 0.5) !important;
                             }
                             a[href="CV.pdf"]:hover span:last-child {
                                 left: 0 !important;
@@ -324,28 +336,28 @@
 
                     <!-- Right Side: Introduction Text -->
                     <div data-aos="fade-left" data-aos-delay="200" style="flex: 1; min-width: 280px; max-width: 100%; width: 100%; box-sizing: border-box; overflow: hidden;">
-                        <h1 class="home-title" style="color: white; font-size: 56px; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); line-height: 1.2;">
+                        <h1 class="home-title" style="color: #1a1a2e; font-size: 56px; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5); line-height: 1.2;">
                         Human–AI Researcher
                     </h1>
-                        <div style="width: 100px; height: 3px; background: rgba(255, 255, 255, 0.6); margin: 20px 0; border-radius: 2px;"></div>
-                        <h3 class="home-subtitle" style="font-size: 32px; font-weight: 400; margin-bottom: 30px; color: rgba(255, 255, 255, 0.95); letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        <div style="width: 100px; height: 3px; background: #425BB5; margin: 20px 0; border-radius: 2px;"></div>
+                        <h3 class="home-subtitle" style="font-size: 32px; font-weight: 400; margin-bottom: 30px; color: #2c3e50; letter-spacing: 1px; text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);">
                         Wenxuan (Jackson) Song
                     </h3>
-                        <p class="home-tagline" style="color: rgba(255, 255, 255, 0.9); font-size: 18px; margin-bottom: 40px; font-weight: 300; letter-spacing: 0.5px;">
+                        <p class="home-tagline" style="color: #34495e; font-size: 18px; margin-bottom: 40px; font-weight: 300; letter-spacing: 0.5px;">
                             Bridging artificial intelligence and human-centered design
                         </p>
 
                         <!-- Know About Me Content -->
-                        <div class="home-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); width: 100%; box-sizing: border-box; overflow: hidden; margin-bottom: 0;">
-                            <h2 class="home-section-title" style="color: white; font-size: 36px; font-weight: 400; margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); letter-spacing: 1px;">
-                                Know About Me
+                        <div class="home-card" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 0.5); width: 100%; box-sizing: border-box; overflow: hidden; margin-bottom: 0;">
+                            <h2 class="home-section-title" style="color: #1a1a2e; font-size: 36px; font-weight: 400; margin-bottom: 30px; letter-spacing: 1px;">
+                                About Me
                             </h2>
                             <div style="overflow: hidden;">
-                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: rgba(255, 255, 255, 0.95); margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); word-wrap: break-word; overflow-wrap: break-word;">
-                                    I am in my last year at the University of Illinois Urbana-Champaign (August 2023 - May 2026), pursuing a Bachelor of Science in Information Sciences and Data Science with a minor in Computer Science. I work with <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Caroline Cao</strong> at the Jump Simulation Center, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Koustuv Saha</strong> at the OnCARE Lab, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Halil Kilicoglu</strong> at the ScienceNLP Lab, and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Mike Yao</strong> at the Illinois Police Training Institute.
+                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: #2c3e50; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px; word-wrap: break-word; overflow-wrap: break-word;">
+                                    I'm a final-year undergraduate at the University of Illinois Urbana-Champaign (Class of 2026), pursuing a Bachelor of Science in Information Sciences and Data Science with a minor in Computer Science. I conduct research with <strong style="color: #425BB5; font-weight: 600;">Professor Caroline Cao</strong> at the Jump Simulation Center, <strong style="color: #425BB5; font-weight: 600;">Professor Koustuv Saha</strong> at the OnCARE Lab, <strong style="color: #425BB5; font-weight: 600;">Professor Halil Kilicoglu</strong> at the ScienceNLP Lab, and <strong style="color: #425BB5; font-weight: 600;">Professor Mike Yao</strong> at the Illinois Police Training Institute.
                                 </p>
-                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: rgba(255, 255, 255, 0.95); margin-bottom: 0; font-weight: 300; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); word-wrap: break-word; overflow-wrap: break-word;">
-                                    My research focuses on <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">human-AI interaction</strong>, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">AI for health & training</strong>, and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">digital wellbeing</strong>. I design AI systems that detect early uncertainty signals through behavioral cues and adapt support in real-time. My work includes AI facilitators for mixed reality medical training and conversational wellbeing companions like <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">KRIYA</strong> and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">WellScreen</strong>.
+                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: #2c3e50; margin-bottom: 0; font-weight: 300; letter-spacing: 0.3px; word-wrap: break-word; overflow-wrap: break-word;">
+                                    My research focuses on three interconnected domains: <strong style="color: #425BB5; font-weight: 600;">human-AI interaction</strong>, <strong style="color: #425BB5; font-weight: 600;">AI for health & training</strong>, and <strong style="color: #425BB5; font-weight: 600;">digital wellbeing</strong>. I design AI systems that detect early uncertainty signals through behavioral cues and adapt support in real-time. My work includes AI facilitators for mixed reality medical training (<strong style="color: #425BB5; font-weight: 600;">SPATIALTUTOR</strong>, <strong style="color: #425BB5; font-weight: 600;">EmSim</strong>) and conversational wellbeing companions (<strong style="color: #425BB5; font-weight: 600;">KRIYA</strong>, <strong style="color: #425BB5; font-weight: 600;">WellScreen</strong>) that help users reflect on their technology use and build healthier digital habits.
                         </p>
                     </div>
                 </div>
@@ -403,8 +415,14 @@
             animation: floatIcon 1s ease-in-out infinite, pulse 2s ease-in-out infinite;
         }
     </style>
-    <div class="section" id="selected-work" style="background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); padding: 100px 0; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(66, 91, 181, 0.02) 10px, rgba(66, 91, 181, 0.02) 20px); pointer-events: none;"></div>
+    <div class="section" id="selected-work" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%); background-size: 400% 400%; animation: gradientShift 12s ease infinite; padding: 100px 0; position: relative; overflow: hidden;">
+        <div class="animated-bg-shapes">
+            <!-- Selected Work Emojis -->
+            <div class="emoji-bg emoji-4" style="top: 25%; left: 10%; z-index: 2;">👮</div>
+            <div class="emoji-bg emoji-5" style="top: 15%; right: 20%; z-index: 2;">🏥</div>
+            <div class="emoji-bg emoji-6" style="top: 60%; right: 10%; z-index: 2;">💻</div>
+        </div>
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="col-md-12">
                 <h4>02</h4>
@@ -529,8 +547,9 @@
     <!-- ./selected work -->
     
     <!-- experience  -->
-    <div class="section" id="experience">
-        <div class="container">
+    <div class="section" id="experience" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%); background-size: 400% 400%; animation: gradientShift 12s ease infinite; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
             <div class="col-md-12">
                 <h4>03</h4>
                 <h1 class="size-50">Experience</h1>
@@ -549,34 +568,42 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2025 – Present</p>
-                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Carle Illinois College of Medicine</h3>
-                                        </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">May 2025 – Present</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">Carle Illinois College of Medicine</h3>
                                     </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training</li>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">GPT-4, Pinecone, RAG, Vision Pro, Flask, OpenAI TTS, AWS API Gateway, MongoDB, Redis, AWS Systems Manager, CI/CD, CloudWatch</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">GPT-4, Pinecone, RAG, Vision Pro, Flask, OpenAI TTS, AWS API Gateway, MongoDB, Redis, AWS Systems Manager, CI/CD, CloudWatch</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Designed Vision Pro training platform delivering near real-time AI guidance across 8 lumbar puncture steps</li>
-                                        <li style="margin-bottom: 6px;">Built voice-interactive conversation system supporting 100+ concurrent sessions</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Designed Vision Pro training platform delivering near real-time AI guidance across 8 lumbar puncture steps</li>
+                                        <li style="margin-bottom: 8px;">Built voice-interactive conversation system supporting 100+ concurrent sessions</li>
                                         <li style="margin-bottom: 0;">Deployed scalable backend architecture reducing deployment time by 60%</li>
                                     </ul>
                                 </div>
-                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 6px; line-height: 1.5; font-style: italic;">"Should the AI Speak First? Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training" (CHI '26 In Revision)</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"SPATIALTUTOR: Object-Aware Mixed Reality Training for Procedural Medical Skills Training with AI-Driven Support" (AIxVR 26)</p>
+                                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 10px; line-height: 1.7;">
+                                        <strong style="font-style: italic;">Should the AI Speak First? Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training</strong><br>
+                                        Duo Wang, <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song</strong>, Jianwei Ni, Qingxiao Zheng, Yuhan Zhou, Kyrian Liang, Mike Yao, Caroline Cao<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI '26 In Revision)</span>
+                                    </p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 0; line-height: 1.7;">
+                                        <strong style="font-style: italic;">SPATIALTUTOR: Object-Aware Mixed Reality Training for Procedural Medical Skills Training with AI-Driven Support</strong><br>
+                                        Duo Wang, Jianwei Ni, Yuhan Zhou, Weiyu Ding, <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song</strong>, Shandra Jamison, Mike Yao, Caroline Cao<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of the IEEE Conference on Artificial Intelligence and Extended and Virtual Reality (AIxVR 26)</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -587,34 +614,43 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">March 2025 – Present</p>
-                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">OnCARE Lab</h3>
-                                        </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Koustuv Saha</h4>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">March 2025 – Present</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">OnCARE Lab</h3>
                                     </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Koustuv Saha</h4>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Designing Toward Digital Self-Awareness and Wellbeing</li>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Designing Toward Digital Self-Awareness and Wellbeing</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">React, Node.js, MongoDB, R, SMAPE, paired t-tests, linear mixed-effects models</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">React, Node.js, MongoDB, R, SMAPE, paired t-tests, linear mixed-effects models</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Engineered data collection pipeline to quantify prediction–behavior gaps in smartphone usage</li>
-                                        <li style="margin-bottom: 6px;">Developed full-stack platform for real-time prediction logging and visualization across two-week field study (N=24)</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Engineered data collection pipeline to quantify prediction–behavior gaps in smartphone usage</li>
+                                        <li style="margin-bottom: 8px;">Developed full-stack platform for real-time prediction logging and visualization across two-week field study (N=24)</li>
                                         <li style="margin-bottom: 0;">Identified significant effects (p<.05) on satisfaction, self-control, and perceived stress</li>
                                     </ul>
                                 </div>
-                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 6px; line-height: 1.5; font-style: italic;">"In my defense, only three hours on Instagram": Designing Toward Digital Self-Awareness and Wellbeing (CHI '26 In Revision)</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"Designing KRIYA: An AI Companion for Wellbeing Self-Reflection" (DIS '26 In Preparation)</p>
+                                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 10px; line-height: 1.7;">
+                                        <strong style="font-style: italic;">"In my defense, only three hours on Instagram": Designing Toward Digital Self-Awareness and Wellbeing</strong><br>
+                                        Karthik S. Bhat, Jiayue Melissa Shi<sup>*</sup>, <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song<sup>*</sup></strong>, Dong Whi Yoo, Koustuv Saha<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI '26 In Revision)</span>
+                                    </p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 10px; line-height: 1.7;">
+                                        <strong style="font-style: italic;">Designing KRIYA: An AI Companion for Wellbeing Self-Reflection</strong><br>
+                                        <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song<sup>*</sup></strong>, Shane Zhu<sup>*</sup>, Jiayue Melissa Shi, Koustuv Saha<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of ACM SIGCHI Conference on Designing Interactive Systems (DIS '26 In Preparation)</span>
+                                    </p>
+                                    <p style="color: #7f8c8d; font-size: 14px; margin-bottom: 0; font-style: italic; margin-top: 10px;">* denotes equal contribution; order based on last name</p>
                                 </div>
                             </div>
                         </div>
@@ -625,26 +661,26 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">January 2025 – Present</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">January 2025 – Present</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">ScienceNLP Lab</h3>
-                                        </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Halil Kilicoglu</h4>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">ScienceNLP Lab</h3>
                                     </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Halil Kilicoglu</h4>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Enhancing Transparency in Biomedical Trial Reporting</li>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Enhancing Transparency in Biomedical Trial Reporting</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">PubMedBERT, PyTorch, HuggingFace, multi-label classification, CONSORT, SPIRIT</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">PubMedBERT, PyTorch, HuggingFace, multi-label classification, CONSORT, SPIRIT</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Developed sentence-level multi-label classification system for RCT document compliance detection</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Developed sentence-level multi-label classification system for RCT document compliance detection</li>
                                         <li style="margin-bottom: 6px;">Processed 10,000+ sentences with 50+ guideline labels, achieving micro F1 around 0.88</li>
                                         <li style="margin-bottom: 0;">Designed evaluation framework with label frequency analysis and misclassification heatmaps</li>
                                     </ul>
@@ -658,33 +694,37 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2025 – August 2025</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">May 2025 – August 2025</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Jump Simulation Center</h3>
-                                        </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">Jump Simulation Center</h3>
                                     </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Evaluating AI and Human Simulations in Law Enforcement Training</li>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Evaluating AI and Human Simulations in Law Enforcement Training</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">GPT-4o, Gemini Flash 2.5, Next.js, Python, SQL, R, tidyverse, repeated-measures ANOVA</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">GPT-4o, Gemini Flash 2.5, Next.js, Python, SQL, R, tidyverse, repeated-measures ANOVA</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Created adaptive persona simulation system for law enforcement training across emotional regulation and de-escalation</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Created adaptive persona simulation system for law enforcement training across emotional regulation and de-escalation</li>
                                         <li style="margin-bottom: 6px;">Implemented multi-agent pipeline with context-aware prompt control and real-time web delivery</li>
                                         <li style="margin-bottom: 0;">Identified significant differences (p<.01) in trust, flow, and engagement</li>
                                     </ul>
                                 </div>
-                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"Does Sequencing Matter? Evaluating AI and Human Simulations for High-Stakes Communication Training in Law Enforcement" (CHI '26 In Revision)</p>
+                                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 0; line-height: 1.7;">
+                                        <strong style="font-style: italic;">Does Sequencing Matter? Evaluating AI and Human Simulations for High-Stakes Communication Training in Law Enforcement</strong><br>
+                                        Duo Wang<sup>*</sup>, Kyrian Liang<sup>*</sup>, Qingxiao Zheng, <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song</strong>, Jen Whiting, Mike Yao, Caroline Cao<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI '26 In Revision)</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -695,36 +735,40 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">October 2024 – May 2025</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">October 2024 – May 2025</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Illinois Police Training Institute</h3>
-                                        </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Mike Yao</h4>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">Illinois Police Training Institute</h3>
                                     </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Mike Yao</h4>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">EmSim: AI-Driven VR Training for Law Enforcement De-Escalation</li>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                            </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">EmSim: AI-Driven VR Training for Law Enforcement De-Escalation</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">React.js, MongoDB, Unity, Node.js, Whisper, GPT-4</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">React.js, MongoDB, Unity, Node.js, Whisper, GPT-4</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Crafted browser-based dashboard to visualize simulation data across 10+ branching scenarios</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Crafted browser-based dashboard to visualize simulation data across 10+ branching scenarios</li>
                                         <li style="margin-bottom: 6px;">Built logging pipeline to capture multi-modal user inputs for session replay and behavioral analysis</li>
                                         <li style="margin-bottom: 0;">Integrated Whisper-transcribed dialogue and GPT-4 classification outputs into interactive summary charts</li>
                                     </ul>
-                            </div>
-                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
-                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"EmSim: An AI-Driven VR Simulation for Scenario-Based De-Escalation Training in Law Enforcement" (AIxVR 26)</p>
                         </div>
+                                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 15px; margin-bottom: 0; line-height: 1.7;">
+                                        <strong style="font-style: italic;">EmSim: An AI-Driven VR Simulation for Scenario-Based De-Escalation Training in Law Enforcement</strong><br>
+                                        Duo Wang, Kyrian Liang, <strong style="color: #425BB5; font-weight: 700;">Wenxuan Song</strong>, Zyra Sheikh, Jen Whiting, Victor Lu, Mike Yao, Caroline Cao<br>
+                                        <span style="font-style: italic; color: #7f8c8d;">In Proceedings of the IEEE Conference on Artificial Intelligence and Extended and Virtual Reality (AIxVR 26)</span>
+                                    </p>
                     </div>
                 </div>
+            </div>
 
                         <!-- CS 124 Teaching - August 2024 – December 2024 -->
                         <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
@@ -732,22 +776,22 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">August 2024 – December 2024</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">August 2024 – December 2024</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">CS 124: Introduction to Computer Science (Java/Kotlin)</h3>
-            </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Course Assistant Tutor | UIUC | Supervisor: Geoffrey Challen</h4>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">CS 124: Introduction to Computer Science (Java/Kotlin)</h3>
         </div>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Course Assistant Tutor | UIUC | Supervisor: Geoffrey Challen</h4>
+    </div>
                                     <span style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Teaching Experience</span>
     </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Java, Kotlin, Data Structures, Object-Oriented Design, Recursive Algorithms, Unit Testing</li>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Java, Kotlin, Data Structures, Object-Oriented Design, Recursive Algorithms, Unit Testing</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Mentored 100+ undergraduates in data structures and object-oriented design through weekly discussions and one-on-one tutoring</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Mentored 100+ undergraduates in data structures and object-oriented design through weekly discussions and one-on-one tutoring</li>
                                         <li style="margin-bottom: 0;">Supported 5 Machine Problems (MPs) by guiding students through recursive algorithm implementation and unit-tested data structures</li>
                                     </ul>
             </div>
@@ -760,22 +804,22 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2024 – August 2024</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">May 2024 – August 2024</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Lvkang Medical Care Group Co., Ltd.</h3>
-                                    </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Software Engineer Intern</h4>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">Lvkang Medical Care Group Co., Ltd.</h3>
+            </div>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Software Engineer Intern</h4>
                                 </div>
                                     <span style="background: linear-gradient(135deg, #27ae60, #229954); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Industry Experience</span>
                                 </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">React.js, Node.js, AWS Lambda, DynamoDB, D3.js, MongoDB</li>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">React.js, Node.js, AWS Lambda, DynamoDB, D3.js, MongoDB</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Developed full-stack system for real-time incident reporting, reducing unresolved event cases by 40%</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Developed full-stack system for real-time incident reporting, reducing unresolved event cases by 40%</li>
                                         <li style="margin-bottom: 6px;">Built event-driven alert pipeline to detect and prioritize high-urgency alerts in real time</li>
                                         <li style="margin-bottom: 0;">Engineered performance dashboard visualizing 1,200+ interactions, improving response time analytics by 35%</li>
                                     </ul>
@@ -789,32 +833,32 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">January 2024 – December 2024</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">January 2024 – December 2024</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Social Computing System Lab (SALT)</h3>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">Social Computing System Lab (SALT)</h3>
                                     </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Huang Yun</h4>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Research Assistant | Advisor: Prof. Huang Yun</h4>
                                 </div>
-                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
                             </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">LLM-Enhanced XR Systems: A Framework for Spatial, Situational, Social, and Self-Awareness</li>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">LLM-Enhanced XR Systems: A Framework for Spatial, Situational, Social, and Self-Awareness</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Systematic Literature Review, Grounded Theory, LLM Integration, XR Design, Framework Development</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Systematic Literature Review, Grounded Theory, LLM Integration, XR Design, Framework Development</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Conducted systematic literature review analyzing 135 academic papers on LLM integration in XR systems</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Conducted systematic literature review analyzing 135 academic papers on LLM integration in XR systems</li>
                                         <li style="margin-bottom: 6px;">Applied grounded theory methodology to identify design practices, challenges, and future research directions</li>
                                         <li style="margin-bottom: 0;">Proposed comprehensive framework enhancing spatial, situational, social, and self-awareness in XR through LLM-driven interactions</li>
                                     </ul>
                         </div>
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
                         <!-- MOONBOOW - December 2023 – January 2024 -->
                         <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
@@ -822,31 +866,31 @@
                             <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
                                     <div style="flex: 1;">
-                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">December 2023 – January 2024</p>
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 16px; white-space: nowrap; margin-right: 20px; margin-bottom: 10px; background: rgba(66, 91, 181, 0.1); padding: 8px 16px; border-radius: 20px; display: inline-block;">December 2023 – January 2024</p>
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
-                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">MOONBOOW</h3>
-            </div>
-                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Software Engineer Intern</h4>
-        </div>
+                                            <h3 style="font-size: 26px; margin: 0; color: #2c3e50; font-weight: 600;">MOONBOOW</h3>
+                                    </div>
+                                        <h4 style="font-size: 18px; color: #7f8c8d; margin-bottom: 12px; font-weight: 400;">Software Engineer Intern</h4>
+                                </div>
                                     <span style="background: linear-gradient(135deg, #27ae60, #229954); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Industry Experience</span>
-    </div>
-                                <div style="margin-top: 15px;">
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Unity (XR Toolkit), C#, MERN stack, WebSockets, MongoDB, GPT-3.5 Turbo, Whisper API</li>
+                            </div>
+                                <div style="margin-top: 20px;">
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0 0 18px 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Unity (XR Toolkit), C#, MERN stack, WebSockets, MongoDB, GPT-3.5 Turbo, Whisper API</li>
                                     </ul>
-                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
-                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                                        <li style="margin-bottom: 6px;">Prototyped gesture-based mixed reality system for Meta Quest 3 enabling real-time 3D interaction</li>
+                                    <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 10px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 17px; line-height: 1.9; margin: 0; padding-left: 24px;">
+                                        <li style="margin-bottom: 8px;">Prototyped gesture-based mixed reality system for Meta Quest 3 enabling real-time 3D interaction</li>
                                         <li style="margin-bottom: 6px;">Built full-stack infrastructure supporting real-time state synchronization and session logging</li>
                                         <li style="margin-bottom: 0;">Integrated GPT-3.5 Turbo and Whisper APIs, maintaining stability under 5,000 QPS multi-user concurrency tests</li>
                                     </ul>
-            </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </div>
@@ -856,41 +900,198 @@
     <!-- ./experience -->
     
     <!-- technical skills -->
-    <div class="section" id="skills" style="margin-bottom: 100px; padding-bottom: 80px;">
-        <div class="container">
+    <div class="section" id="skills" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%); background-size: 400% 400%; animation: gradientShift 12s ease infinite; padding-bottom: 80px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
             <div class="col-md-12">
                  <h4>04</h4>
                 <h1 class="size-50">Technical <br /> Skills</h1>
                 <div class="h-50"></div>
             </div>
             <div class="col-md-12">
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div data-aos="fade-up" style="padding: 40px; background: #ffffff; border-left: 4px solid #425BB5; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-radius: 4px;">
-                        <div style="line-height: 2; font-size: 16px; color: #34495e;">
-                            <p style="margin-bottom: 20px;">
-                                <strong style="color: #2c3e50; font-size: 17px;">Programming Languages:</strong><br>
-                                <span style="color: #7f8c8d;">Python, Java, JavaScript, TypeScript, C#, C++, Swift, SQL, HTML/CSS</span>
-                            </p>
-                            <p style="margin-bottom: 20px;">
-                                <strong style="color: #2c3e50; font-size: 17px;">Frameworks & Libraries:</strong><br>
-                                <span style="color: #7f8c8d;">React.js, Node.js, Express, Flask, Unity (XR Toolkit), WebSockets</span>
-                            </p>
-                            <p style="margin-bottom: 20px;">
-                                <strong style="color: #2c3e50; font-size: 17px;">Tools & Platforms:</strong><br>
-                                <span style="color: #7f8c8d;">MongoDB, DynamoDB, Redis, AWS (Lambda, S3), Azure, Docker, Git/Github, REST API</span>
-                            </p>
-                            <p style="margin-bottom: 20px;">
-                                <strong style="color: #2c3e50; font-size: 17px;">AI/ML:</strong><br>
-                                <span style="color: #7f8c8d;">PyTorch, TensorFlow, scikit-learn, Pandas, NumPy, BERT, AI</span>
-                            </p>
-                            <p style="margin-bottom: 0; padding-top: 20px; border-top: 2px solid #e8e8e8;">
-                                <strong style="color: #2c3e50; font-size: 17px;">Beyond Academics:</strong><br>
-                                <span style="color: #7f8c8d;">Surfing, Cross Country, Fitness, Guitar, Art & Design, Cooking</span>
-                            </p>
+                <style>
+                    @keyframes floatBox1 {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(-15px) rotate(1deg); }
+                    }
+                    @keyframes floatBox2 {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(-18px) rotate(-1deg); }
+                    }
+                    @keyframes floatBox3 {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(-16px) rotate(0.8deg); }
+                    }
+                    @keyframes floatBox4 {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(-17px) rotate(-0.8deg); }
+                    }
+                    .skills-grid {
+                        max-width: 1400px;
+                        margin: 0 auto;
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 25px;
+                        align-items: stretch;
+                    }
+                    @media (max-width: 1200px) {
+                        .skills-grid {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+                    @media (max-width: 768px) {
+                        .skills-grid {
+                            grid-template-columns: 1fr;
+                        }
+                    }
+                    .skill-box {
+                        background: #ffffff;
+                        padding: 40px 35px;
+                        border-radius: 24px;
+                        box-shadow: 0 10px 35px rgba(66, 91, 181, 0.12);
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        border-top: 5px solid #425BB5;
+                        position: relative;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        min-height: 300px;
+                    }
+                    .skill-box::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(66, 91, 181, 0.08), transparent);
+                        transition: left 0.6s ease;
+                    }
+                    .skill-box:hover::before {
+                        left: 100%;
+                    }
+                    .skill-box:hover {
+                        transform: translateY(-12px) scale(1.02);
+                        box-shadow: 0 20px 50px rgba(66, 91, 181, 0.2);
+                        border-top-color: #667eea;
+                    }
+                    .skill-box.box1 {
+                        animation: floatBox1 5s ease-in-out infinite;
+                    }
+                    .skill-box.box2 {
+                        animation: floatBox2 5.3s ease-in-out infinite;
+                        animation-delay: 0.3s;
+                    }
+                    .skill-box.box3 {
+                        animation: floatBox3 5.1s ease-in-out infinite;
+                        animation-delay: 0.6s;
+                    }
+                    .skill-box.box4 {
+                        animation: floatBox4 5.2s ease-in-out infinite;
+                        animation-delay: 0.9s;
+                    }
+                    .skill-title {
+                        color: #2c3e50;
+                        font-size: 24px;
+                        font-weight: 700;
+                        margin-bottom: 25px;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        letter-spacing: -0.5px;
+                    }
+                    .skill-title::before {
+                        content: '';
+                        width: 5px;
+                        height: 28px;
+                        background: linear-gradient(135deg, #425BB5, #667eea);
+                        border-radius: 3px;
+                        box-shadow: 0 2px 8px rgba(66, 91, 181, 0.3);
+                    }
+                    .skill-items {
+                        color: #34495e;
+                        font-size: 14px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        flex: 1;
+                        align-content: flex-start;
+                    }
+                    .skill-tag {
+                        background: linear-gradient(135deg, rgba(66, 91, 181, 0.08), rgba(102, 126, 234, 0.08));
+                        color: #425BB5;
+                        padding: 10px 18px;
+                        border-radius: 25px;
+                        font-weight: 600;
+                        font-size: 13px;
+                        border: 2px solid rgba(66, 91, 181, 0.15);
+                        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        white-space: nowrap;
+                        box-shadow: 0 2px 5px rgba(66, 91, 181, 0.1);
+                    }
+                    .skill-tag:hover {
+                        background: linear-gradient(135deg, #425BB5, #667eea);
+                        color: white;
+                        transform: translateY(-2px) scale(1.05);
+                        border-color: #425BB5;
+                        box-shadow: 0 5px 15px rgba(66, 91, 181, 0.3);
+                    }
+                </style>
+                <div class="skills-grid">
+                    <div data-aos="fade-up" data-aos-delay="0" class="skill-box box1">
+                        <div class="skill-title">Programming Languages</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Swift</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            </div>
+                        </div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="skill-box box2">
+                        <div class="skill-title">Frameworks & Libraries</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Unity (XR Toolkit)</span>
+                            <span class="skill-tag">WebSockets</span>
                         </div>
                     </div>
+                    <div data-aos="fade-up" data-aos-delay="400" class="skill-box box3">
+                        <div class="skill-title">AI/ML</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">scikit-learn</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">BERT</span>
                 </div>
             </div>
+                    <div data-aos="fade-up" data-aos-delay="600" class="skill-box box4">
+                        <div class="skill-title">Systems Tools</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">DynamoDB</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">AWS (Lambda, S3)</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git/Github</span>
+                            <span class="skill-tag">REST API</span>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         </div>
     </div>
     <!-- ./technical skills -->
@@ -970,8 +1171,15 @@
             margin: 0;
         }
     </style>
-    <div class="section" id="activities" style="background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); padding: 100px 0;">
-        <div class="container">
+    <div class="section" id="activities" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%); background-size: 400% 400%; animation: gradientShift 12s ease infinite; padding: 100px 0; position: relative; overflow: hidden;">
+        <div class="animated-bg-shapes">
+            <!-- Outside Activities Emojis -->
+            <div class="emoji-bg emoji-1" style="top: 10%; left: 15%;">⛵</div>
+            <div class="emoji-bg emoji-2" style="top: 60%; left: 5%;">🏃</div>
+            <div class="emoji-bg emoji-3" style="top: 30%; right: 10%;">⛷️</div>
+        </div>
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
             <div class="col-md-12">
                 <h4>05</h4>
                 <h1 class="size-50">Outside <br /> Activities</h1>
@@ -1016,26 +1224,26 @@
                                 <div class="activity-description">
                                     <p style="margin: 0; color: #34495e; font-size: 15px; line-height: 1.8;">
                                         <strong style="color: #425BB5;">Sailing for 3 years</strong>, including an open-ocean expedition from California to Portland, Oregon, developing seamanship and resilience.
-                                    </p>
-                                </div>
-                            </div>
+                            </p>
                         </div>
+                    </div>
+                </div>
 
                         <!-- Cross Country Running -->
                         <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
                             <div class="activity-image xc">
                                 <img src="img/xc.jpeg" alt="Cross Country Running">
-                            </div>
+            </div>
                             <div class="activity-content">
                                 <div class="activity-header">
                                     <div class="activity-icon">
                                         <i class="ion-ios-speedometer"></i>
-                                    </div>
+        </div>
                                     <h3 class="activity-title">Cross Country Running</h3>
-                                </div>
+    </div>
                                 <div class="activity-description">
                                     <p style="margin: 0; color: #34495e; font-size: 15px; line-height: 1.8;">
-                                        <strong style="color: #425BB5;">Running competitively since middle school (2014 - Present)</strong>, continuing through high school and college.
+                                        <strong style="color: #425BB5;">Running competitively for 8 years</strong>, varsity high school with league championship.
                                     </p>
                                 </div>
                             </div>
@@ -1049,8 +1257,9 @@
     <!-- ./outside activities -->
     
     <!-- contact -->
-<div class="section" id="contact">
-    <div class="container">
+<div class="section" id="contact" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #667eea 100%); background-size: 400% 400%; animation: gradientShift 12s ease infinite; padding: 100px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
         <div class="col-md-12">
             <h4>06</h4>
             <h1 class="size-50 text-center">Get in Touch</h1>
