@@ -36,314 +36,1023 @@
     <!-- ./Preloader -->
     
     <!-- header -->
-    <header class="navbar-fixed-top" style="position: absolute; top: 0; right: 0; width: 100%; display: flex; justify-content: flex-end; align-items: center; padding-right: 20px; height: 80px;">
+    <style>
+        .main-nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px 40px;
+            height: 80px;
+            z-index: 1000;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .main-nav li a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+        .main-nav li a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 15px 20px;
+            }
+            .main-nav ul {
+                gap: 8px;
+            }
+            .main-nav li a {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+    <header class="navbar-fixed-top main-nav">
         <nav>
-            <ul style="display: flex; gap: 30px; list-style: none; font-size: 23px;">
-                <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
-                <li><a href="#experience" style="color: white; text-decoration: none;">Experience</a></li>
-                <li><a href="#projects" style="color: white; text-decoration: none;">Projects</a></li>
-                <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+            <ul>
+                <li><a href="#home">About</a></li>
+                <li><a href="#selected-work">Selected Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <!-- ./header -->
     
     <!-- home -->
-    <div class="section" id="home" data-stellar-background-ratio="0.5">
-        <div class="container" style="position: relative; height: 100vh;">
-            <div class="table-cell" data-aos="fade-up" data-aos-delay="0" style="position: absolute; right: -130px; top: 50%; transform: translateY(-50%); padding-right: 80px; text-align: right;">
-                <br><br><br><br>
-                <h1 style="color: rgb(61, 61, 61);">Researcher &<br /> Software Engineer</h1>
-                <br>
-                <h3 style="font-size: 36px; margin-top: 10px; padding-right: 0px; color: rgb(255, 255, 255);">Wenxuan (Jackson) Song</h3>
+    <style>
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-40px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-20px) translateX(5px);
+            }
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+        
+        #home {
+            overflow: hidden !important;
+            position: relative !important;
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        #home::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.03) 10px,
+                rgba(255, 255, 255, 0.03) 20px
+            );
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        .animated-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+        
+        .bg-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(102, 126, 234, 0.4);
+            top: -100px;
+            left: -100px;
+            animation: float 25s ease-in-out infinite;
+        }
+        
+        .bg-shape-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(118, 75, 162, 0.4);
+            bottom: -150px;
+            right: -150px;
+            animation: float 30s ease-in-out infinite reverse;
+        }
+        
+        .bg-shape-3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(240, 147, 251, 0.4);
+            top: 50%;
+            right: 10%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        .bg-shape-4 {
+            width: 350px;
+            height: 350px;
+            background: rgba(79, 172, 254, 0.3);
+            bottom: 20%;
+            left: 20%;
+            animation: float 22s ease-in-out infinite;
+        }
+        
+        #home .container {
+            overflow: hidden !important;
+            position: relative !important;
+            z-index: 1;
+        }
+        
+        @media (max-width: 480px) {
+            .home-title { font-size: 28px !important; line-height: 1.2 !important; margin-bottom: 12px !important; }
+            .home-subtitle { font-size: 20px !important; margin-bottom: 20px !important; }
+            .home-tagline { font-size: 14px !important; margin-bottom: 25px !important; }
+            .home-section-title { font-size: 24px !important; margin-bottom: 20px !important; }
+            .home-text { font-size: 13px !important; line-height: 1.7 !important; margin-bottom: 15px !important; }
+            .home-image { width: 200px !important; height: 200px !important; }
+            #home .container { padding: 50px 15px 100px !important; }
+            .home-card { padding: 20px !important; margin-bottom: 0 !important; }
+            .bg-shape { filter: blur(40px); }
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+            .home-title { font-size: 32px !important; line-height: 1.2 !important; }
+            .home-subtitle { font-size: 22px !important; }
+            .home-tagline { font-size: 15px !important; }
+            .home-section-title { font-size: 26px !important; }
+            .home-text { font-size: 14px !important; line-height: 1.7 !important; }
+            .home-image { width: 220px !important; height: 220px !important; }
+            #home .container { padding: 60px 15px 100px !important; }
+            .home-card { padding: 25px !important; margin-bottom: 0 !important; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .home-title { font-size: 44px !important; }
+            .home-subtitle { font-size: 26px !important; }
+            #home .container { padding: 80px 20px 100px !important; }
+        }
+        @media (min-width: 1025px) {
+            #home .container { padding: 100px 20px 120px !important; }
+        }
+    </style>
+    <div class="section" id="home" style="position: relative; width: 100%; min-height: auto; display: block; clear: both; overflow: hidden; margin: 0; padding: 0;">
+        <div class="animated-bg-shapes">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+            <div class="bg-shape bg-shape-3"></div>
+            <div class="bg-shape bg-shape-4"></div>
+        </div>
+        <div class="container" style="position: relative; padding: 100px 20px 120px; z-index: 1; width: 100%; max-width: 1400px; margin: 0 auto; box-sizing: border-box; overflow: hidden;">
+            <div style="width: 100%; max-width: 100%; margin: 0 auto; box-sizing: border-box; overflow: hidden;">
+                <!-- Main Content: Image Left, Text Right -->
+                <div style="display: flex; align-items: flex-start; gap: 60px; flex-wrap: wrap; width: 100%; box-sizing: border-box; overflow: hidden;">
+                    <!-- Left Side: Profile Image -->
+                    <div data-aos="fade-right" data-aos-delay="0" style="flex: 0 0 auto; text-align: center; width: 100%; max-width: 320px; margin: 0 auto 40px; box-sizing: border-box;">
+                        <img src="img/self.jpg" alt="Jackson Song" class="home-image" style="width: 320px; height: 320px; max-width: 100%; border-radius: 50%; object-fit: cover; border: 6px solid rgba(255, 255, 255, 0.3); transition: transform 0.3s ease; box-sizing: border-box; margin-bottom: 30px;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+                        <a href="CV.pdf" download="Jackson_Song_CV.pdf" onclick="event.preventDefault(); const link = document.createElement('a'); link.href = 'CV.pdf'; link.download = 'Jackson_Song_CV.pdf'; document.body.appendChild(link); link.click(); document.body.removeChild(link);" style="display: inline-block; padding: 14px 32px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.4); border-radius: 50px; color: white; font-size: 16px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); letter-spacing: 0.5px; position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 1; display: flex; align-items: center; gap: 8px;">
+                                <i class="ion-ios-download" style="font-size: 18px;"></i>
+                                Download My CV
+                            </span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.3); transition: left 0.3s ease; z-index: 0;"></span>
+                        </a>
+                        <style>
+                            a[href="CV.pdf"]:hover {
+                                background: rgba(255, 255, 255, 0.3) !important;
+                                border-color: rgba(255, 255, 255, 0.6) !important;
+                                transform: translateY(-2px);
+                                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+                            }
+                            a[href="CV.pdf"]:hover span:last-child {
+                                left: 0 !important;
+                            }
+                            @media (max-width: 768px) {
+                                a[href="CV.pdf"] {
+                                    padding: 12px 24px !important;
+                                    font-size: 14px !important;
+                                }
+                            }
+                        </style>
+                </div>
+
+                    <!-- Right Side: Introduction Text -->
+                    <div data-aos="fade-left" data-aos-delay="200" style="flex: 1; min-width: 280px; max-width: 100%; width: 100%; box-sizing: border-box; overflow: hidden;">
+                        <h1 class="home-title" style="color: white; font-size: 56px; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); line-height: 1.2;">
+                        Human–AI Researcher
+                    </h1>
+                        <div style="width: 100px; height: 3px; background: rgba(255, 255, 255, 0.6); margin: 20px 0; border-radius: 2px;"></div>
+                        <h3 class="home-subtitle" style="font-size: 32px; font-weight: 400; margin-bottom: 30px; color: rgba(255, 255, 255, 0.95); letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        Wenxuan (Jackson) Song
+                    </h3>
+                        <p class="home-tagline" style="color: rgba(255, 255, 255, 0.9); font-size: 18px; margin-bottom: 40px; font-weight: 300; letter-spacing: 0.5px;">
+                            Bridging artificial intelligence and human-centered design
+                        </p>
+
+                        <!-- Know About Me Content -->
+                        <div class="home-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); width: 100%; box-sizing: border-box; overflow: hidden; margin-bottom: 0;">
+                            <h2 class="home-section-title" style="color: white; font-size: 36px; font-weight: 400; margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); letter-spacing: 1px;">
+                                Know About Me
+                            </h2>
+                            <div style="overflow: hidden;">
+                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: rgba(255, 255, 255, 0.95); margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); word-wrap: break-word; overflow-wrap: break-word;">
+                                    I am in my last year at the University of Illinois Urbana-Champaign (August 2023 - May 2026), pursuing a Bachelor of Science in Information Sciences and Data Science with a minor in Computer Science. I work with <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Caroline Cao</strong> at the Jump Simulation Center, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Koustuv Saha</strong> at the OnCARE Lab, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Halil Kilicoglu</strong> at the ScienceNLP Lab, and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">Professor Mike Yao</strong> at the Illinois Police Training Institute.
+                                </p>
+                                <p class="home-text" style="font-size: 17px; line-height: 1.9; color: rgba(255, 255, 255, 0.95); margin-bottom: 0; font-weight: 300; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); word-wrap: break-word; overflow-wrap: break-word;">
+                                    My research focuses on <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">human-AI interaction</strong>, <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">AI for health & training</strong>, and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">digital wellbeing</strong>. I design AI systems that detect early uncertainty signals through behavioral cues and adapt support in real-time. My work includes AI facilitators for mixed reality medical training and conversational wellbeing companions like <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">KRIYA</strong> and <strong style="color: rgba(255, 255, 255, 1); font-weight: 500;">WellScreen</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
+            </div>
     <!-- ./home -->
     
     <!-- about -->
-    <div class="section" id="about">
-        <div class="container">
-            <div class="col-md-6" data-aos="fade-up">
-                <h4>01</h4>
-                <h1 class="size-50">Know <br /> About me</h1>
-                <div class="h-50"></div>
-                <p>I'm currently pursuing a Bachelor's degree in Information Science and Data Science at UIUC, with plans to complete the program within three years (2023-2026). My studies focus on mastering software development, data analysis, and a wide range of programming languages, equipping me with the technical skills necessary to tackle complex problems in the tech world.</p>
-                <p>Beyond academics, I'm passionate about outdoor activities like hiking, running, and surfing, which help me stay active and energized. I also dedicate time to community service, where I find purpose in making a positive impact through meaningful projects.</p>
-                <p>In particular, I'm drawn to designing technology that fosters real connections and enhances user experiences. My goal is to collaborate on innovative tech solutions that not only solve problems but also make a difference in people's lives. Let's create something impactful together!</p>                            
-                <div class="h-50"></div> <img src="img/signature.png" width="230" alt="" />
-                <div class="h-50"></div>
-            </div>
-            <div class="col-md-6 about-img-div">
-                <div class="about-border" data-aos="fade-up" data-aos-delay=".5"></div>
-                <img src="img/xc.jpeg" width="400" class="img-responsive" alt="" align="right" data-aos="fade-right" data-aos-delay="0" />
-            </div>
-        </div>
-    </div>
+    <div class="section" id="about" style="display: none;">
+        <!-- About section content moved to home section -->
+                        </div>
     <!-- ./about -->
+    
+    <!-- selected work -->
+    <style>
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(66, 91, 181, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        .project-card:hover::before {
+            animation: slide 1s ease;
+            opacity: 1;
+        }
+        @keyframes slide {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        .project-icon {
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+        .project-card:hover .project-icon {
+            animation: floatIcon 1s ease-in-out infinite, pulse 2s ease-in-out infinite;
+        }
+    </style>
+    <div class="section" id="selected-work" style="background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); padding: 100px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(66, 91, 181, 0.02) 10px, rgba(66, 91, 181, 0.02) 20px); pointer-events: none;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="col-md-12">
+                <h4>02</h4>
+                <h1 class="size-50">Selected <br /> Work</h1>
+                <div class="h-50"></div>
+            </div>
+            <div class="col-md-12">
+                <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px;">
+                    
+                    <!-- Law Enforcement Project - EmSim -->
+                    <a href="https://drive.google.com/file/d/1s0QvEWrtWmPdGSeyPCZQ4qUqv_GtzUE2/view?usp=sharing" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="0" style="background: #ffffff; border-radius: 20px; padding: 35px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border-top: 5px solid #425BB5; height: 100%; display: flex; flex-direction: column;">
+                            <div style="text-align: center; margin-bottom: 25px;">
+                                <div class="project-icon" style="width: 100px; height: 100px; background: linear-gradient(135deg, #425BB5, #667eea); border-radius: 20px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(66, 91, 181, 0.3); position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ion-ios-people" style="font-size: 50px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.2);"></i>
+                                        </div>
+                                    </div>
+                                <h3 style="font-size: 26px; color: #2c3e50; margin-bottom: 15px; font-weight: 600;">Law Enforcement</h3>
+                                <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">EmSim</p>
+                            </div>
+                            <div style="flex: 1; text-align: left;">
+                                <ul style="color: #34495e; font-size: 15px; line-height: 2; margin: 0; padding-left: 20px; list-style: none;">
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        AI-driven VR simulation for de-escalation training
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Evaluates AI vs. human simulation effectiveness
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Published at <strong>IEEE AIxVR 2026</strong>
+                                    </li>
+                                </ul>
+                                        </div>
+                            <div style="margin-top: 25px; text-align: center;">
+                                <div style="padding: 14px 28px; background: linear-gradient(135deg, #425BB5, #667eea); color: white; border-radius: 10px; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(66, 91, 181, 0.3);">
+                                    View Research →
+                                    </div>
+                                        </div>
+                                    </div>
+                                </a>
+                    
+                    <!-- Medical Project - SPATIALTUTOR / Reactive AI Facilitator -->
+                    <a href="https://drive.google.com/file/d/1Ig02qCm0ySBPte_huB9E_EU1f1jU92B7/view?usp=sharing" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="100" style="background: #ffffff; border-radius: 20px; padding: 35px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border-top: 5px solid #425BB5; height: 100%; display: flex; flex-direction: column;">
+                            <div style="text-align: center; margin-bottom: 25px;">
+                                <div class="project-icon" style="width: 100px; height: 100px; background: linear-gradient(135deg, #425BB5, #667eea); border-radius: 20px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(66, 91, 181, 0.3); position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ion-ios-medical" style="font-size: 50px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.2);"></i>
+                                        </div>
+                                    </div>
+                                <h3 style="font-size: 26px; color: #2c3e50; margin-bottom: 15px; font-weight: 600;">Medical</h3>
+                                <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">SPATIALTUTOR / Reactive AI Facilitator</p>
+                            </div>
+                            <div style="flex: 1; text-align: left;">
+                                <ul style="color: #34495e; font-size: 15px; line-height: 2; margin: 0; padding-left: 20px; list-style: none;">
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Object-aware mixed reality medical training
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Evaluates proactive vs. reactive AI facilitation
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Published at <strong>IEEE AIxVR 2026</strong> & <strong>CHI 2026</strong>
+                                    </li>
+                                </ul>
+                                        </div>
+                            <div style="margin-top: 25px; text-align: center;">
+                                <div style="padding: 14px 28px; background: linear-gradient(135deg, #425BB5, #667eea); color: white; border-radius: 10px; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(66, 91, 181, 0.3);">
+                                    View Research →
+                                    </div>
+                                        </div>
+                                    </div>
+                                </a>
+                    
+                    <!-- Digital Wellbeing Project - WellScreen -->
+                    <a href="https://arxiv.org/pdf/2509.21860" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="200" style="background: #ffffff; border-radius: 20px; padding: 35px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border-top: 5px solid #425BB5; height: 100%; display: flex; flex-direction: column;">
+                            <div style="text-align: center; margin-bottom: 25px;">
+                                <div class="project-icon" style="width: 100px; height: 100px; background: linear-gradient(135deg, #425BB5, #667eea); border-radius: 20px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(66, 91, 181, 0.3); position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ion-ios-heart" style="font-size: 50px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.2);"></i>
+                                        </div>
+                                    </div>
+                                <h3 style="font-size: 26px; color: #2c3e50; margin-bottom: 15px; font-weight: 600;">Digital Wellbeing</h3>
+                                <p style="color: #425BB5; font-size: 16px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">WellScreen</p>
+                            </div>
+                            <div style="flex: 1; text-align: left;">
+                                <ul style="color: #34495e; font-size: 15px; line-height: 2; margin: 0; padding-left: 20px; list-style: none;">
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        AI companions for digital self-awareness
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Detects uncertainty signals through behavioral cues
+                                    </li>
+                                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                                        <span style="position: absolute; left: 0; color: #425BB5; font-weight: bold;">•</span>
+                                        Published at <strong>CHI 2026</strong>
+                                    </li>
+                                </ul>
+                                        </div>
+                            <div style="margin-top: 25px; text-align: center;">
+                                <div style="padding: 14px 28px; background: linear-gradient(135deg, #425BB5, #667eea); color: white; border-radius: 10px; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(66, 91, 181, 0.3);">
+                                    View Research →
+                                    </div>
+                                        </div>
+                                    </div>
+                                </a>
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!-- ./selected work -->
     
     <!-- experience  -->
     <div class="section" id="experience">
         <div class="container">
             <div class="col-md-12">
-                <h4>02</h4>
-                <h1 class="size-50">My <br /> Experience</h1>
+                <h4>03</h4>
+                <h1 class="size-50">Experience</h1>
                 <div class="h-50"></div>
             </div>
             <div class="col-md-12">
-                <ul class="timeline">
-
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                          <p class="timeline-event-thumbnail">September 2023 - Present</p>
-                          <h3>Jump Simulation Center</h3>
-                          <h4>Carle Illinois College of Medicine</h4>
-                          <p><strong>AI Software Developer Intern</strong></p>
-                          <p><strong>Project:</strong> Spatial Computing for Medical Simulation Training in XR Devices</p>
-                          <p>I focused on setting up the AI chatbot that assists in medical training simulations. Using <strong>Node.js</strong> and <strong>Express.js</strong>, I developed the backend and set up the API to support real-time interaction between the chatbot and trainees. The chatbot, powered by <strong>Natural Language Processing (NLP)</strong> and using the <strong>OpenAI GPT-4 model</strong>, provides guidance by answering medical questions during simulations. I worked on fine-tuning the chatbot's responses by connecting it to a medical database, ensuring that the responses were accurate and relevant to the medical procedures being simulated.</p>
-                        </div>
-                    </li>
-
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">August 2024 - Present</p>
-                            <h3>CS 124: Intro to Computer Science I</h3>
-                            <h4>University of Illinois Urbana-Champaign</h4>
-                            <p><strong>Course Assistant (CA)</strong></p>
-                            <p>I help students navigate the fundamentals of computer science using <strong>Java</strong> and <strong>Kotlin</strong>. My focus is on guiding them through essential concepts such as <strong>loops</strong>, <strong>data structures</strong>, and <strong>algorithms</strong>, ensuring they can confidently solve problems and write efficient code. I provide hands-on support during labs and assignments, assisting with debugging and optimization. Additionally, I offer constructive feedback on projects and help prepare students for assessments, fostering a solid foundation in computer science and encouraging their passion for programming.</p>
-                        </div>
-                    </li>
-
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">June 2024 - August 2024</p>
-                            <h3>Zhejiang Lvkang Medical Care Group Co., Ltd.</h3>
-                            <p><strong>Software Developer Intern</strong></p>
-                            <p><strong>Project:</strong> Elderly Care Mini Program</p>
-                            <p>I spearheaded the development of the Elderly Care Mini Program, designed to revolutionize care management within senior care facilities. We used <strong>JavaScript</strong>, <strong>WeChat Mini Program</strong>, and <strong>Node.js</strong> to implement key features that supported real-time updates and data synchronization for caregivers. I also helped integrate <strong>MongoDB</strong> for efficient data handling. Together, we optimized the platform's performance, ensuring it was scalable, user-friendly, and capable of enhancing care management within senior facilities. This project significantly improved the operational efficiency of care teams and ensured better service delivery to elderly residents.</p>
-                        </div>
-                    </li>
+                <div style="max-width: 1000px; margin: 0 auto; position: relative;">
+                    <!-- Timeline line -->
+                    <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #425BB5, #667eea); border-radius: 2px;"></div>
                     
+                    <!-- Timeline entries -->
+                    <div style="position: relative; padding-left: 80px;">
+                        <!-- Carle Illinois College of Medicine - May 2025 – Present -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2025 – Present</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Carle Illinois College of Medicine</h3>
+                                        </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
+                                    </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">GPT-4, Pinecone, RAG, Vision Pro, Flask, OpenAI TTS, AWS API Gateway, MongoDB, Redis, AWS Systems Manager, CI/CD, CloudWatch</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Designed Vision Pro training platform delivering near real-time AI guidance across 8 lumbar puncture steps</li>
+                                        <li style="margin-bottom: 6px;">Built voice-interactive conversation system supporting 100+ concurrent sessions</li>
+                                        <li style="margin-bottom: 0;">Deployed scalable backend architecture reducing deployment time by 60%</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 6px; line-height: 1.5; font-style: italic;">"Should the AI Speak First? Evaluating Proactive vs. Reactive Facilitation in Mixed-Reality Medical Training" (CHI '26 In Revision)</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"SPATIALTUTOR: Object-Aware Mixed Reality Training for Procedural Medical Skills Training with AI-Driven Support" (AIxVR 26)</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                          <p class="timeline-event-thumbnail">May 2024 - Present</p>
-                          <h3>Social Computing System Lab</h3>
-                          <h4>University of Illinois Urbana-Champaign</h4>
-                          <p><strong>XR Software Developer - Stage 1</strong></p>
-                          <p><strong>Focus:</strong> Unity Development for HoloLens 2</p>
-                          <p>I contributed to the development of 3D environments in <strong>Unity</strong> for the <strong>HoloLens 2</strong>, designed to enhance studies conducted with PhD students. My work focused on creating interactive elements that improve collaboration and spatial awareness in <strong>Augmented Reality (AR)</strong> settings. I implemented these interactive elements using <strong>C# coding</strong> to ensure the system performed smoothly in real-time, providing an immersive experience for the users during the studies. I also collaborated with researchers to optimize performance, ensuring that the applications could handle complex interactions without latency.</p>
-                          <br>
-                          <p><strong>Research Assistant - Stage 2</strong></p>
-                          <p><strong>Focus:</strong> LLM & XR Research and CHI Research Paper Development</p>
-                          <p>I contributed to research exploring how <strong>Large Language Models (LLMs)</strong> can enhance interactions in <strong>Extended Reality (XR)</strong> environments. My role was to investigate how LLMs could make virtual environments more responsive and adaptive to users. This research led to co-authoring a paper for the <strong>CHI 2025</strong> conference, where we presented our findings on how LLMs could improve engagement and learning in XR settings.</p>                       
+                        <!-- OnCARE Lab - March 2025 – Present -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">March 2025 – Present</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">OnCARE Lab</h3>
+                                        </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Koustuv Saha</h4>
+                                    </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Designing Toward Digital Self-Awareness and Wellbeing</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">React, Node.js, MongoDB, R, SMAPE, paired t-tests, linear mixed-effects models</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Engineered data collection pipeline to quantify prediction–behavior gaps in smartphone usage</li>
+                                        <li style="margin-bottom: 6px;">Developed full-stack platform for real-time prediction logging and visualization across two-week field study (N=24)</li>
+                                        <li style="margin-bottom: 0;">Identified significant effects (p<.05) on satisfaction, self-control, and perceived stress</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 6px; line-height: 1.5; font-style: italic;">"In my defense, only three hours on Instagram": Designing Toward Digital Self-Awareness and Wellbeing (CHI '26 In Revision)</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"Designing KRIYA: An AI Companion for Wellbeing Self-Reflection" (DIS '26 In Preparation)</p>
+                                </div>
+                            </div>
                         </div>
-                      </li>
-                    
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                          <p class="timeline-event-thumbnail">January 2024 - May 2024</p>
-                          <h3>Social Computing System Lab</h3>
-                          <h4>University of Illinois Urbana-Champaign</h4>
-                          <p><strong>Research Assistant (Machine Learning Developer)</strong></p>
-                          <p><strong>Focus:</strong> Object Detection with YOLO</p>
-                          <p>I focused on implementing and fine-tuning <strong>YOLO</strong> for object detection in dynamic environments. My work involved developing custom YOLO models, optimized for specific datasets, to efficiently identify and classify objects. I was responsible for building real-time detection pipelines that enabled automated object classification and decision-making in various systems. This required extensive use of <strong>Python</strong> and <strong>PyTorch</strong> for deep learning, model training, and optimization. Throughout the project, I continuously refined the models by analyzing performance metrics, improving detection accuracy with each iteration.</p>
-                        </div>
-                    </li>
-                      
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">November 2023 - January 2024</p>
-                            <h3>MOONBOOW Studio</h3>
-                            <p><strong>Research Assistant (Software Developer)</strong></p>
-                            <p><strong>Project:</strong> Mixed Reality Experience on Meta Quest 3 with GPT-3.5 Turbo Integration</p>
-                            <p>I collaborated with PhD students to develop a mixed reality (MR) experience on Meta Quest 3, integrating <strong>GPT-3.5 Turbo</strong> for immersive, conversational user interactions. I helped design the backend with <strong>Node.js</strong> and <strong>Express.js</strong> for real-time communication and natural language processing. I also contributed to creating interactive 3D elements in <strong>Unity</strong> and managed a <strong>MongoDB</strong> database to optimize performance. This work led to a co-authored paper submitted to the <strong>CSCW 2025</strong> conference.</p>
-                        </div>
-                    </li>                    
 
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                          <p class="timeline-event-thumbnail">August 2023 - October 2023</p>
-                          <h3>Illini Fuel</h3>
-                          <p><strong>Nutrition Analyst Intern</strong></p>
-                          <p><strong>Focus:</strong> Personalized Nutritional Assessments for UIUC NCAA Athletes</p>
-                          <p>I provided tailored nutritional assessments to help NCAA athletes at UIUC optimize their dietary intake and performance. I assessed their nutritional needs based on performance metrics and developed individualized meal and hydration plans. Using <strong>Python</strong> and <strong>Pandas</strong>, I performed data analysis to fine-tune nutrition strategies for both performance and recovery. Additionally, I automated feedback collection from athletes to continually refine the nutrition plans, ensuring they met the evolving needs of the athletes. I worked closely with the coaching staff to ensure that dietary strategies were aligned with training schedules, helping to maximize athletic performance.</p>
+                        <!-- ScienceNLP Lab - January 2025 – Present -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">January 2025 – Present</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">ScienceNLP Lab</h3>
+                                        </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Halil Kilicoglu</h4>
+                                    </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Enhancing Transparency in Biomedical Trial Reporting</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">PubMedBERT, PyTorch, HuggingFace, multi-label classification, CONSORT, SPIRIT</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Developed sentence-level multi-label classification system for RCT document compliance detection</li>
+                                        <li style="margin-bottom: 6px;">Processed 10,000+ sentences with 50+ guideline labels, achieving micro F1 around 0.88</li>
+                                        <li style="margin-bottom: 0;">Designed evaluation framework with label frequency analysis and misclassification heatmaps</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </li>
 
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">Technical Skills</p>
-                            <br><br>
-                            <p><strong>Programming Languages:</strong> C#, C++, Java, HTML/CSS, JavaScript, Python, Swift, SQL</p>
-                            <p><strong>Frameworks:</strong> React.js, Django, MongoDB, Express.js, Node.js, Unity</p>
-                            <p><strong>Tools:</strong> Git/GitHub, AWS EC2, Azure, Docker, VScode, Android Studio, PyCharm, Xcode, Jenkins, Jira, Postman, Jest</p>
-                    </li>
+                        <!-- Jump Simulation Center - May 2025 – August 2025 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2025 – August 2025</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Jump Simulation Center</h3>
+                                        </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Caroline Cao</h4>
+                                    </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Evaluating AI and Human Simulations in Law Enforcement Training</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">GPT-4o, Gemini Flash 2.5, Next.js, Python, SQL, R, tidyverse, repeated-measures ANOVA</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Created adaptive persona simulation system for law enforcement training across emotional regulation and de-escalation</li>
+                                        <li style="margin-bottom: 6px;">Implemented multi-agent pipeline with context-aware prompt control and real-time web delivery</li>
+                                        <li style="margin-bottom: 0;">Identified significant differences (p<.01) in trust, flow, and engagement</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"Does Sequencing Matter? Evaluating AI and Human Simulations for High-Stakes Communication Training in Law Enforcement" (CHI '26 In Revision)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illinois Police Training Institute - October 2024 – May 2025 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">October 2024 – May 2025</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Illinois Police Training Institute</h3>
+                                        </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Mike Yao</h4>
+                                    </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">EmSim: AI-Driven VR Training for Law Enforcement De-Escalation</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">React.js, MongoDB, Unity, Node.js, Whisper, GPT-4</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Crafted browser-based dashboard to visualize simulation data across 10+ branching scenarios</li>
+                                        <li style="margin-bottom: 6px;">Built logging pipeline to capture multi-modal user inputs for session replay and behavioral analysis</li>
+                                        <li style="margin-bottom: 0;">Integrated Whisper-transcribed dialogue and GPT-4 classification outputs into interactive summary charts</li>
+                                    </ul>
+                            </div>
+                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Publications:</p>
+                                    <p style="color: #34495e; font-size: 13px; margin-bottom: 0; line-height: 1.5; font-style: italic;">"EmSim: An AI-Driven VR Simulation for Scenario-Based De-Escalation Training in Law Enforcement" (AIxVR 26)</p>
+                        </div>
+                    </div>
+                </div>
+
+                        <!-- CS 124 Teaching - August 2024 – December 2024 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">August 2024 – December 2024</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">CS 124: Introduction to Computer Science (Java/Kotlin)</h3>
+            </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Course Assistant Tutor | UIUC | Supervisor: Geoffrey Challen</h4>
+        </div>
+                                    <span style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Teaching Experience</span>
+    </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Java, Kotlin, Data Structures, Object-Oriented Design, Recursive Algorithms, Unit Testing</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Mentored 100+ undergraduates in data structures and object-oriented design through weekly discussions and one-on-one tutoring</li>
+                                        <li style="margin-bottom: 0;">Supported 5 Machine Problems (MPs) by guiding students through recursive algorithm implementation and unit-tested data structures</li>
+                                    </ul>
+            </div>
+                            </div>
+                        </div>
+
+                        <!-- Lvkang Medical Care - May 2024 – August 2024 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">May 2024 – August 2024</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Lvkang Medical Care Group Co., Ltd.</h3>
+                                    </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Software Engineer Intern</h4>
+                                </div>
+                                    <span style="background: linear-gradient(135deg, #27ae60, #229954); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Industry Experience</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">React.js, Node.js, AWS Lambda, DynamoDB, D3.js, MongoDB</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Developed full-stack system for real-time incident reporting, reducing unresolved event cases by 40%</li>
+                                        <li style="margin-bottom: 6px;">Built event-driven alert pipeline to detect and prioritize high-urgency alerts in real time</li>
+                                        <li style="margin-bottom: 0;">Engineered performance dashboard visualizing 1,200+ interactions, improving response time analytics by 35%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Computing System Lab (SALT) - January 2024 – December 2024 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">January 2024 – December 2024</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">Social Computing System Lab (SALT)</h3>
+                                    </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Research Assistant | Advisor: Prof. Huang Yun</h4>
+                                </div>
+                                    <span style="background: linear-gradient(135deg, #425BB5, #667eea); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Research Experience</span>
+                            </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Studied Topic:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">LLM-Enhanced XR Systems: A Framework for Spatial, Situational, Social, and Self-Awareness</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Systematic Literature Review, Grounded Theory, LLM Integration, XR Design, Framework Development</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Conducted systematic literature review analyzing 135 academic papers on LLM integration in XR systems</li>
+                                        <li style="margin-bottom: 6px;">Applied grounded theory methodology to identify design practices, challenges, and future research directions</li>
+                                        <li style="margin-bottom: 0;">Proposed comprehensive framework enhancing spatial, situational, social, and self-awareness in XR through LLM-driven interactions</li>
+                                    </ul>
+                        </div>
+                    </div>
+                </div>
+
+                        <!-- MOONBOOW - December 2023 – January 2024 -->
+                        <div class="timeline-item" data-aos="fade-right" style="position: relative; margin-bottom: 50px;">
+                            <div style="position: absolute; left: -55px; top: 5px; width: 20px; height: 20px; background: #425BB5; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #425BB5;"></div>
+                            <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #425BB5;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 15px;">
+                                    <div style="flex: 1;">
+                                        <p style="color: #425BB5; font-weight: 600; font-size: 13px; white-space: nowrap; margin-right: 20px; margin-bottom: 8px; background: rgba(66, 91, 181, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block;">December 2023 – January 2024</p>
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                                            <h3 style="font-size: 22px; margin: 0; color: #2c3e50; font-weight: 600;">MOONBOOW</h3>
+            </div>
+                                        <h4 style="font-size: 15px; color: #7f8c8d; margin-bottom: 10px; font-weight: 400;">Software Engineer Intern</h4>
+        </div>
+                                    <span style="background: linear-gradient(135deg, #27ae60, #229954); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; align-self: flex-start;">Industry Experience</span>
+    </div>
+                                <div style="margin-top: 15px;">
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Skills Used:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0 0 15px 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Unity (XR Toolkit), C#, MERN stack, WebSockets, MongoDB, GPT-3.5 Turbo, Whisper API</li>
+                                    </ul>
+                                    <p style="color: #425BB5; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Learned:</p>
+                                    <ul style="color: #34495e; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                        <li style="margin-bottom: 6px;">Prototyped gesture-based mixed reality system for Meta Quest 3 enabling real-time 3D interaction</li>
+                                        <li style="margin-bottom: 6px;">Built full-stack infrastructure supporting real-time state synchronization and session logging</li>
+                                        <li style="margin-bottom: 0;">Integrated GPT-3.5 Turbo and Whisper APIs, maintaining stability under 5,000 QPS multi-user concurrency tests</li>
+                                    </ul>
+            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+                </div>
+            </div>
+        </div>
     <!-- ./experience -->
     
-    <!-- projects -->
-    <div class="section" id="projects">
+    <!-- technical skills -->
+    <div class="section" id="skills" style="margin-bottom: 100px; padding-bottom: 80px;">
         <div class="container">
             <div class="col-md-12">
-                <h4>03</h4>
-                <h1 class="size-50">My <br /> Works</h1> 
+                 <h4>04</h4>
+                <h1 class="size-50">Technical <br /> Skills</h1>
+                <div class="h-50"></div>
             </div>
-            <!-- main container -->
-            <div class="main-container portfolio-inner clearfix">
-                <!-- portfolio div -->
-                <div class="portfolio-div">
-                    <div class="portfolio">
-                        <!-- portfolio_filter -->
-                        <div class="categories-grid wow fadeInLeft">
-                            <nav class="categories">
-                                <ul class="portfolio_filter">
-                                    <li><a href="" class="active" data-filter="*">All</a></li>
-                                    <li><a href="" data-filter=".intern">Internship</a></li>
-                                    <li><a href="" data-filter=".research">Research</a></li>
-                                    <li><a href="" data-filter=".project">Project</a></li>
-                                </ul>
-                            </nav>
+            <div class="col-md-12">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div data-aos="fade-up" style="padding: 40px; background: #ffffff; border-left: 4px solid #425BB5; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-radius: 4px;">
+                        <div style="line-height: 2; font-size: 16px; color: #34495e;">
+                            <p style="margin-bottom: 20px;">
+                                <strong style="color: #2c3e50; font-size: 17px;">Programming Languages:</strong><br>
+                                <span style="color: #7f8c8d;">Python, Java, JavaScript, TypeScript, C#, C++, Swift, SQL, HTML/CSS</span>
+                            </p>
+                            <p style="margin-bottom: 20px;">
+                                <strong style="color: #2c3e50; font-size: 17px;">Frameworks & Libraries:</strong><br>
+                                <span style="color: #7f8c8d;">React.js, Node.js, Express, Flask, Unity (XR Toolkit), WebSockets</span>
+                            </p>
+                            <p style="margin-bottom: 20px;">
+                                <strong style="color: #2c3e50; font-size: 17px;">Tools & Platforms:</strong><br>
+                                <span style="color: #7f8c8d;">MongoDB, DynamoDB, Redis, AWS (Lambda, S3), Azure, Docker, Git/Github, REST API</span>
+                            </p>
+                            <p style="margin-bottom: 20px;">
+                                <strong style="color: #2c3e50; font-size: 17px;">AI/ML:</strong><br>
+                                <span style="color: #7f8c8d;">PyTorch, TensorFlow, scikit-learn, Pandas, NumPy, BERT, AI</span>
+                            </p>
+                            <p style="margin-bottom: 0; padding-top: 20px; border-top: 2px solid #e8e8e8;">
+                                <strong style="color: #2c3e50; font-size: 17px;">Beyond Academics:</strong><br>
+                                <span style="color: #7f8c8d;">Surfing, Cross Country, Fitness, Guitar, Art & Design, Cooking</span>
+                            </p>
                         </div>
-                        <!-- portfolio_filter -->
-                        
-                        <!-- portfolio_container -->
-                        <div class="no-padding portfolio_container clearfix" data-aos="fade-up">
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6  intern">
-                                <a id="demo01" href="#animatedModal" class="portfolio_item"> <img src="img/portfolio/sec.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Jump Simulation Center</span> <em>AI Software Developer Intern</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 research">
-                                <a id="demo02" href="#animatedModal2" class="portfolio_item"> <img src="img/portfolio/a.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Social Computing System Lab</span> <em>Research Assistant / LLM & XR</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 research">
-                                <a id="demo03" href="#animatedModal3" class="portfolio_item"> <img src="img/portfolio/s.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Social Computing System Lab</span> <em>Research Assistant / Machine Learning</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 intern">
-                                <a id="demo04" href="#animatedModal4" class="portfolio_item"> <img src="img/portfolio/e.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Illini Fuel</span> <em>Nutrition Analyst Intern</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 research">
-                                <a id="demo05" href="#animatedModal5" class="portfolio_item"> <img src="img/portfolio/h.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Social Computing System Lab</span> <em>Research Assistant / Unity Develop</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 project">
-                                <a id="demo06" href="#animatedModal6" class="portfolio_item"> <img src="img/portfolio/output.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Illinois Data Science Club</span> <em>Project Manager / Machine Learning</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 project">
-                                <a id="demo07" href="#animatedModal7" class="portfolio_item"> <img src="img/portfolio/t.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>CS 124: Intro to Computer Science I</span> <em>Course Assistant (CA)</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 research">
-                                <a id="demo08" href="#animatedModal8" class="portfolio_item"> <img src="img/portfolio/ei.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>MOONBOOW Studio</span> <em>Research Assistant / Software Developer</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 intern">
-                                <a id="demo09" href="#animatedModal9" class="portfolio_item"> <img src="img/portfolio/z.png" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Zhejiang Lvkang Medical Care Group Co., Ltd. </span> <em>Software Developer Intern</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                        </div>
-                        <!-- end portfolio_container -->
                     </div>
-                    <!-- portfolio -->
                 </div>
-                <!-- end portfolio div -->
             </div>
-            <!-- end main container -->
         </div>
     </div>
-    <!-- ./projects -->
+    <!-- ./technical skills -->
+    
+    <!-- outside activities -->
+    <style>
+        .activity-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border-top: 5px solid #425BB5;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(66, 91, 181, 0.2);
+        }
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+        .activity-image {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .activity-image.xc img {
+            object-position: center 25%;
+        }
+        .activity-image.ski img {
+            object-position: 15% 80%;
+        }
+        .activity-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .activity-icon {
+            font-size: 32px;
+            color: #425BB5;
+            background: linear-gradient(135deg, rgba(66, 91, 181, 0.1), rgba(102, 126, 234, 0.1));
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .activity-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 600;
+        }
+        .activity-description {
+            color: #34495e;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+    </style>
+    <div class="section" id="activities" style="background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); padding: 100px 0;">
+        <div class="container">
+            <div class="col-md-12">
+                <h4>05</h4>
+                <h1 class="size-50">Outside <br /> Activities</h1>
+                <div class="h-50"></div>
+            </div>
+            <div class="col-md-12">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px;">
+                        
+                        <!-- Skiing -->
+                        <div class="activity-card" data-aos="fade-up" data-aos-delay="0">
+                            <div class="activity-image ski">
+                                <img src="img/ski.png" alt="Skiing">
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <div class="activity-icon">
+                                        <i class="ion-ios-cloudy"></i>
+                                    </div>
+                                    <h3 class="activity-title">Skiing</h3>
+                                </div>
+                                <div class="activity-description">
+                                    <p style="margin: 0; color: #34495e; font-size: 15px; line-height: 1.8;">
+                                        <strong style="color: #425BB5;">Skiing for 4 years</strong>, exploring diverse mountain terrains and developing adaptability in challenging conditions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sailing -->
+                        <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="activity-image">
+                                <img src="img/sail.jpeg" alt="Sailing">
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <div class="activity-icon">
+                                        <i class="ion-ios-navigate"></i>
+                                    </div>
+                                    <h3 class="activity-title">Sailing</h3>
+                                </div>
+                                <div class="activity-description">
+                                    <p style="margin: 0; color: #34495e; font-size: 15px; line-height: 1.8;">
+                                        <strong style="color: #425BB5;">Sailing for 3 years</strong>, including an open-ocean expedition from California to Portland, Oregon, developing seamanship and resilience.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cross Country Running -->
+                        <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="activity-image xc">
+                                <img src="img/xc.jpeg" alt="Cross Country Running">
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <div class="activity-icon">
+                                        <i class="ion-ios-speedometer"></i>
+                                    </div>
+                                    <h3 class="activity-title">Cross Country Running</h3>
+                                </div>
+                                <div class="activity-description">
+                                    <p style="margin: 0; color: #34495e; font-size: 15px; line-height: 1.8;">
+                                        <strong style="color: #425BB5;">Running competitively since middle school (2014 - Present)</strong>, continuing through high school and college.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./outside activities -->
     
     <!-- contact -->
 <div class="section" id="contact">
     <div class="container">
         <div class="col-md-12">
-            <h4>04</h4>
+            <h4>06</h4>
             <h1 class="size-50 text-center">Get in Touch</h1>
             <div class="h-50"></div>
         </div>
@@ -387,37 +1096,25 @@
             <div class="container">
                 <div class="portfolio-padding">
                     <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Jump Simulation Center</h2>
+                        <h2>SPATIALTUTOR</h2>
                         <h4>Carle Illinois College of Medicine</h4>
                         <br>
-                        <!-- Job title placed here -->
-                        <p><strong>AI Software Developer Intern</strong> <br><em>October 2023 - Present</em></p>
-                        <p><strong>Project:</strong> Spatial Computing for Medical Simulation Training in XR Devices</p>
+                        <p><strong>Research Assistant</strong> <br><em>May 2025 – Present</em></p>
+                        <p><strong>Project:</strong> Object-Aware Mixed Reality Training for Procedural Medical Skills Training with AI-Driven Support</p>
                         
-                        <!-- Image placed here -->
+                        <!-- Video placed here -->
                         <br />
-                        <img src="img/portfolio/fir.png" alt="" class="img-responsive" />
+                        <video style="width: 100%; height: auto; border-radius: 8px;" controls>
+                            <source src="IEEE AIxVR26-SPATIALTUTOR.mp4" type="video/mp4">
+                        </video>
                         <br>
-                        <p>At Jump Simulation Center, I took part in an ambitious project that aimed to revolutionize medical training through the integration of <strong>spatial computing</strong> technologies with <strong>Extended Reality (XR)</strong> devices. The goal was to create highly immersive, interactive medical environments that replicate real-world scenarios, providing medical students and professionals with hands-on experience like never before.</p>
-
-                        <p>To bring this vision to life, I developed the backend infrastructure using <strong>Node.js</strong> and <strong>Express.js</strong>, which enabled real-time interactions between trainees and the AI-powered chatbot. Powered by <strong>Natural Language Processing (NLP)</strong> and <strong>OpenAI's GPT-4 model</strong>, the chatbot played a crucial role by offering guidance throughout simulated medical procedures. It answered complex questions and provided key insights during critical moments. A big part of my role was fine-tuning the chatbot's responses by connecting it to a specialized medical database, ensuring accuracy and relevance during the simulations.</p>
-                        
-                        <p>This project wasn't just about guiding users—it was about completely transforming the training experience. I worked closely with a team of healthcare professionals to design interactive 3D environments that were synchronized with the AI chatbot, allowing trainees to manipulate virtual medical tools and practice procedures in real-time. These <strong>XR-powered</strong> simulations offered a seamless learning experience, immersing trainees in realistic medical scenarios where they could experience the same pressure and precision as they would in real-life situations.</p>
-                        
-                        <p>Another key aspect of the project was training a specialized <strong>Large Language Model (LLM)</strong> for medical purposes. This allowed the AI assistant to provide contextually relevant, adaptive responses during simulations, enhancing the overall depth and realism of the training. I worked closely with healthcare experts to continuously refine the system, ensuring that it met the stringent standards required for medical training.</p>
-                        
-                        <p>From backend development to real-time <strong>AI integration</strong>, this project utilized a wide range of technical skills. I used <strong>Python</strong> to train the LLM, and <strong>Node.js</strong> and <strong>Express.js</strong> to build the chatbot infrastructure. Additionally, I employed <strong>XR technologies</strong> to develop the interactive simulations. This project not only pushed the boundaries of AI in medical education but also demonstrated how advanced technology can revolutionize training in complex fields like healthcare.</p>
+                        <p><strong>Description:</strong></p>
+                        <p>SPATIALTUTOR is an innovative mixed reality training system that provides AI-driven support for procedural medical skills training. The system uses object-aware technology to enhance learning experiences in medical education. By integrating spatial computing with artificial intelligence, SPATIALTUTOR creates immersive training environments where medical students can practice complex procedures with real-time AI guidance and feedback.</p>
+                        <p>The system leverages advanced computer vision and machine learning algorithms to track and understand the spatial relationships between medical tools, anatomical structures, and trainee movements. This object-aware capability allows the AI to provide contextually relevant support, detecting when trainees encounter difficulties and offering adaptive assistance in real-time.</p>
                         <br />
-                        
-                        <!-- Technical Skills Section -->
-                        <p><strong>Technical Skills Used:</strong></p>
-                        <ul style="text-align: justify;">
-                            <li><strong>Backend Development:</strong> Node.js, Express.js for AI chatbot infrastructure.</li>
-                            <li><strong>AI Development:</strong> Python for LLM model training.</li>
-                            <li><strong>Spatial Computing:</strong> XR development for interactive medical simulations.</li>
-                            <li><strong>Database Management:</strong> Medical database integration for LLM training.</li>
-                            <li><strong>NLP:</strong> Implementing real-time conversational AI for enhanced user interaction.</li>
-                        </ul>
+                        <p><strong>IEEE Publication:</strong></p>
+                        <p style="font-style: italic; color: #425BB5; font-size: 15px;">"SPATIALTUTOR: Object-Aware Mixed Reality Training for Procedural Medical Skills Training with AI-Driven Support" - Presented at <strong>IEEE AIxVR 2026</strong> (AIxVR 26)</p>
+                        <p style="color: #7f8c8d; font-size: 14px;">This work was accepted and presented at the IEEE Conference on Artificial Intelligence and Extended Reality (AIxVR), showcasing cutting-edge research at the intersection of AI, mixed reality, and medical training.</p>
                         <br><br><br><br><br><br><br><br><br><br><br><br>
                     </div>
                 </div>
@@ -435,367 +1132,34 @@
             <div class="container">
                 <div class="portfolio-padding">
                     <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Social Computing System Lab</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
+                        <h2>EmSim</h2>
+                        <h4>Illinois Police Training Institute</h4>
                         <br>
-                        <p><strong>Research Assistant / LLM & XR</strong> <br><em>May 2024 - Present</em></p>
-                        <p><strong>Focus:</strong> Research Analysis on LLM Integration in XR Environments</p>
+                        <p><strong>Research Assistant</strong> <br><em>October 2024 – May 2025</em></p>
+                        <p><strong>Project:</strong> AI-Driven VR Simulation for Scenario-Based De-Escalation Training in Law Enforcement</p>
                         
-                        <br> <img src="img/portfolio/d.png" alt="" class="img-responsive" />
-                        <br>
-                        
-                        <p>As a <strong>Research Assistant</strong> at the Social Computing System Lab, I worked closely with <strong>PhD students</strong> to explore the potential of integrating <strong>Large Language Models (LLMs)</strong> into <strong>Extended Reality (XR)</strong> systems. My role involved conducting thorough literature reviews, analyzing cutting-edge research, and synthesizing findings to understand how <strong>LLMs</strong> could enhance the interactivity of virtual environments. We aimed to discover new ways to make XR experiences more responsive and adaptive to users, elevating the overall immersion and engagement.</p>
-    
-                        <p>Throughout this project, we investigated how <strong>LLMs</strong> could significantly improve the adaptability of <strong>XR platforms</strong>, making virtual environments more intelligent and interactive. The goal was to enable real-time, context-aware responses within these virtual spaces, transforming how users interact with virtual agents and the environment itself. By identifying gaps in existing technologies, we proposed solutions that leverage <strong>LLMs</strong> to offer richer and more dynamic user interactions.</p>
-                        
-                        <p>As a co-author, I contributed to a research paper that we've submitted to the <strong>CHI 2025</strong> conference. The paper showcases how integrating <strong>LLMs</strong> with immersive technologies could redefine <strong>human-computer interaction (HCI)</strong> by creating more engaging and intelligent virtual experiences. Our research demonstrates how <strong>LLMs</strong> can enhance not only conversational interactions but also decision-making processes within XR environments, resulting in more immersive and responsive experiences for users.</p>
-                        
-                        <p>The research also highlights how <strong>LLMs</strong> can enhance not only conversational interactivity but also decision-making processes within the XR environment, enabling a more holistic and immersive user experience. Through rigorous analysis and collaboration, we identified key factors contributing to the success of this integration, laying the groundwork for future developments in the field.</p>
-                        <br>
-                        <p><strong>Research Skills Employed:</strong></p>
-                        <ul>
-                            <li><strong>Literature Review:</strong> Comprehensive analysis of academic and industry sources related to <strong>LLM</strong> and <strong>XR</strong> technologies.</li>
-                            <li><strong>Data Synthesis:</strong> Integrating diverse research findings to develop cohesive insights into the future of <strong>LLM</strong> in <strong>XR</strong>.</li>
-                            <li><strong>Academic Writing:</strong> Drafting sections of the research paper that were submitted to <strong>CHI 2025</strong>.</li>
-                            <li><strong>Collaborative Research:</strong> Working closely with <strong>PhD students</strong> to refine methodologies and conclusions, ensuring the rigor of the research.</li>
-                        </ul>
-                        
-                        <!-- Research Paper Link placed elegantly here -->
-                        <hr>
-                        <p style="text-align: center;">
-                            <strong><a href="https://drive.google.com/file/d/1Tj7u-VbtqKBazXsrLFJxqskkP20gLDLu/view?usp=sharing" target="_blank">View the Research Paper Submitted to CHI 2025</a></strong>
-                        </p>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-
-    <div id="animatedModal3" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal3 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Social Computing System Lab</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
-                        <br>
-                        <p><strong>Research Assistant / Machine Learning</strong> <br><em>January 2024 - May 2024</em></p>
-                        <p><strong>Focus:</strong> Developing Custom Machine Learning Models for Real-Time Object Detection</p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/ele.PNG" alt="" class="img-responsive" />
-                        <br>
-                        <p>As a <strong>Research Assistant</strong> at the <strong>Social Computing System Lab</strong>, my work centered around exploring different approaches to machine learning, with a particular focus on real-time object detection. Early on, I conducted a thorough <strong>literature review</strong> to understand the landscape of object detection techniques and identify a specific area of interest. After diving into the research, I chose to focus on <strong>YOLO (You Only Look Once)</strong> because of its impressive balance between speed and accuracy in detecting objects in fast-paced environments.</p>
-
-                        <p>This experience wasn't just about building models; it was about learning how to approach research effectively. I spent a lot of time analyzing previous studies, understanding the strengths and weaknesses of existing models, and identifying areas where further exploration was needed. Collaborating with <strong>PhD students</strong> and researchers gave me valuable insights into how to critically evaluate the research field and develop a clear focus for my own work.</p>
-                        
-                        <p>By choosing YOLO as my area of study, I was able to explore its practical applications in real-world scenarios like autonomous systems and robotics. My role involved working hands-on with <strong>Python</strong> and <strong>PyTorch</strong> to build, refine, and optimize YOLO models, applying what I had learned from my literature review. This allowed me to experiment with fine-tuning the model, adjusting parameters to improve its performance in dynamic environments.</p>
-                        
-                        <p>Throughout this project, I gained valuable experience in preparing large datasets, training models, and testing their accuracy. More than that, I learned the importance of collaboration, frequently working with team members to align our efforts with the lab's broader research goals. My contributions helped further our understanding of how machine learning, particularly YOLO, could be integrated into larger systems that require real-time object detection.</p>
-                        
-                        <p>This project was a turning point for me as a researcher. It taught me how to dig deeper into a specific field, identify gaps in the current research, and make meaningful contributions. The hands-on work with YOLO and machine learning models, combined with the collaborative research environment, gave me a solid foundation to build on in the future.</p>
-                        <br>
-                        
-                        
-                        <p><strong>Research Skills Employed:</strong></p>
-                        <ul>
-                            <li><strong>Machine Learning Development:</strong> Built and optimized custom machine learning models for real-time object detection using <strong>YOLO</strong>.</li>
-                            <li><strong>Data Preprocessing:</strong> Handled large-scale datasets, ensuring data was clean, well-annotated, and ready for model training.</li>
-                            <li><strong>Collaboration:</strong> Worked closely with <strong>PhD students</strong> to integrate object detection models into broader system architectures, improving real-time performance.</li>
-                            <li><strong>Model Optimization:</strong> Employed advanced optimization techniques using <strong>Python</strong> and <strong>PyTorch</strong> to improve the accuracy and efficiency of the detection models.</li>
-                        </ul>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
+                        <!-- Video placed here -->
                         <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    <div id="animatedModal4" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal4 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Illini Fuel</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
+                        <video style="width: 100%; height: auto; border-radius: 8px;" controls>
+                            <source src="IEEE AIxVR26-EmSim.mov" type="video/quicktime">
+                        </video>
                         <br>
-                        <p><strong>Nutrition Analyst Intern</strong><br><em>August 2023 - October 2023</em></p>
-                        <p><strong>Focus:</strong> Optimizing Nutritional Strategies for NCAA Athletes</p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/q.png" alt="" class="img-responsive" />
-                        <br>
-                        <p>As a <strong>Nutrition Analyst Intern</strong> at <strong>Illini Fuel</strong>, I played a pivotal role in optimizing the nutritional strategies for NCAA athletes at the University of Illinois. My work centered around creating data-driven nutritional assessments to fine-tune both dietary intake and athletic performance. By analyzing performance metrics, I crafted personalized meal and hydration plans tailored to support each athlete's specific training and recovery needs.</p>
-
-                        <p>Leveraging <strong>Python</strong> and <strong>Pandas</strong>, I conducted in-depth data analysis to identify patterns and trends in performance. This allowed me to make evidence-based adjustments to nutrition strategies, ensuring that each athlete's plan was aligned with their physiological demands. Whether it was optimizing macronutrient distribution or refining hydration approaches, my work helped athletes not only perform at their best during competition but also recover more effectively.</p>
-                        
-                        <p>In addition to data analysis, I implemented an automated feedback system to capture real-time input from athletes. This system enabled me to make swift adjustments to their nutrition plans based on factors such as training intensity, fatigue, and recovery progress. By incorporating real-time feedback, I ensured that athletes' dietary strategies remained aligned with their ever-evolving training regimens.</p>
-                        
-                        <p>Collaboration was a key part of my role as well. I worked closely with coaches and performance teams to ensure that nutritional strategies were fully integrated into the athletes' training schedules. This partnership allowed us to create cohesive plans that supported athletes during intense training periods and recovery phases alike. I also tracked each athlete's progress to ensure the effectiveness of the strategies and continually made adjustments for optimal results.</p>
-                        
-                        <p>This internship gave me a deep understanding of how nutrition directly impacts performance and recovery. It also provided hands-on experience in developing dynamic, data-driven strategies to maximize the potential of elite athletes both on and off the field.</p>
-                                                
-                        <br>
-                        <p><strong>Technical Skills Used:</strong></p>
-                        <ul>
-                            <li><strong>Data Analysis:</strong> Used <strong>Python</strong> and <strong>Pandas</strong> for in-depth analysis of performance metrics to optimize nutrition strategies.</li>
-                            <li><strong>Meal Planning:</strong> Developed personalized meal and hydration plans tailored to individual athlete needs and performance goals.</li>
-                            <li><strong>Collaboration:</strong> Worked closely with coaching staff to align nutrition plans with training schedules and performance objectives.</li>
-                            <li><strong>Automation:</strong> Automated feedback collection from athletes, allowing for real-time adjustments to nutrition strategies.</li>
-                        </ul>
-                        <!-- Research Paper Link placed elegantly here -->
-                        <hr>
-                        <p style="text-align: center;">
-                            <strong><a href="https://www.youtube.com/watch?v=U7jGQU-VMoY" target="_blank">Watch a video about the role here</a></strong>
-                        </p>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="animatedModal5" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal5 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Social Computing System Lab</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
-                        <br>
-                        <p><strong>Research Assistant / Unity Developer</strong><br><em>May 2024 - September 2024</em></p>
-                        <p><strong>Focus:</strong> Unity Development for HoloLens 2 in Augmented Reality (AR) Research</p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/x.png" alt="" class="img-responsive" />
-                        <br>
-    
-                        <p>As a <strong>Research Assistant and Unity Developer</strong> at the <strong>Social Computing System Lab</strong>, I was deeply involved in creating immersive 3D environments for research using <strong>Augmented Reality (AR)</strong> on the <strong>HoloLens 2</strong>. These environments were designed to enhance collaboration and spatial awareness during studies with PhD students, with a focus on improving real-time interactions and making the experience more engaging for users.</p>
-
-                        <p>My role primarily involved developing interactive elements in <strong>Unity</strong> using <strong>C#</strong>, where I worked to ensure everything responded smoothly and handled complex interactions without lag. Performance optimization was key, as these AR applications needed to function seamlessly in real-time research scenarios. I made sure that the systems were both technically efficient and capable of delivering an immersive experience during studies.</p>
-
-                        <p>Collaboration was a central part of the process. I worked closely with PhD students and researchers to fine-tune the AR environments, testing them in real-world scenarios to gather feedback. This iterative process helped us ensure the applications were user-friendly, immersive, and added real value to the research being conducted. The project pushed the limits of what <strong>spatial computing</strong> can achieve in research, showing how AR can create highly interactive and impactful learning and collaboration environments.</p>
-
-                        <p>By combining my technical skills with a deep understanding of spatial computing, I was able to contribute to a project that not only advanced AR technology but also demonstrated its potential for academic and real-world applications. The experience highlighted the power of AR to transform how we interact with virtual spaces in meaningful ways.</p>
-                        <br>
-
-                        <p><strong>Key Responsibilities and Skills Employed:</strong></p>
-                        <ul>
-                            <li><strong>Unity Development:</strong> Built interactive 3D applications using <strong>Unity</strong> and <strong>C#</strong> for <strong>HoloLens 2</strong>, focusing on spatial computing and real-time interaction.</li>
-                            <li><strong>Performance Optimization:</strong> Optimized AR applications to ensure smooth functionality during research studies, with a focus on minimizing latency.</li>
-                            <li><strong>Collaboration:</strong> Worked closely with <strong>PhD students</strong> to gather feedback and refine the AR environments based on real-world testing and study requirements.</li>
-                            <li><strong>Spatial Computing:</strong> Developed AR environments that enhanced collaboration and spatial awareness in research studies, leveraging the capabilities of <strong>HoloLens 2</strong>.</li>
-                        </ul>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
+                        <p><strong>Description:</strong></p>
+                        <p>EmSim is an AI-driven virtual reality simulation system designed for scenario-based de-escalation training in law enforcement. The system provides realistic, immersive training scenarios to help officers develop critical communication and de-escalation skills in high-stakes situations. Through advanced AI technology, EmSim creates dynamic, responsive training environments where officers can practice de-escalation techniques with virtual characters that adapt their behavior based on the officer's communication style and actions.</p>
+                        <p>The system uses natural language processing and behavioral analysis to evaluate officer performance in real-time, providing immediate feedback and personalized training recommendations. By simulating various high-pressure scenarios, EmSim helps law enforcement personnel build confidence and competence in de-escalation strategies, ultimately contributing to safer interactions between officers and the public.</p>
                         <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="animatedModal6" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal6 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Illinois Data Science Club</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
-                        <br>
-                        <p><strong>Project Manager / Machine Learning</strong><br><em>August 2023 - December 2023</em></p>
-                        <p><strong>Project:</strong> Google Stock Analysis Using Machine Learning</p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/k.png" alt="" class="img-responsive" />
-                        <br>
-                        <p>As a <strong>Project Manager</strong> for the Illinois Data Science Club, I spearheaded a comprehensive project aimed at analyzing and modeling Google stock data through the application of advanced <strong>machine learning techniques</strong> and data science tools. The primary objective was to explore historical stock data in depth, extracting actionable insights while developing models to forecast future stock price trends using cutting-edge data science methodologies.</p>
-
-                        <p>The project began with extensive data wrangling, where I leveraged <strong>Pandas</strong> and <strong>NumPy</strong> to clean, organize, and preprocess the data, ensuring its readiness for complex analysis. We pulled a large dataset of Google stock prices from <strong>Yahoo Finance</strong>, spanning over two decades of financial history, which provided a rich foundation for our analysis.</p>
-                        
-                        <p>To uncover trends and predict stock movements, we implemented a variety of <strong>machine learning models</strong> including <strong>linear regression</strong>, <strong>time-series forecasting</strong>, and <strong>moving averages</strong>. These models were designed to track long-term trends while filtering out short-term fluctuations. I led the team in the creation of rolling averages for closing prices, which allowed us to visualize these long-term trends more effectively. Additionally, we used <strong>data visualization libraries</strong> such as <strong>Matplotlib</strong> and <strong>Seaborn</strong> to present our findings visually, offering key insights through clear graphs and highlighting anomalies in the dataset.</p>
-                        
-                        <p>A significant achievement of the project was the development of a predictive model, which we designed to forecast future stock prices based on historical patterns. By employing advanced techniques like <strong>moving averages</strong> and <strong>trend indicators</strong>, we gained deeper insights into Google stock's potential future behavior, allowing us to make informed predictions. These insights were invaluable in understanding stock market dynamics and helped refine our approach to financial data analysis.</p>
-                        
-                        <p>Throughout the project, I ensured smooth collaboration among the team, aligning efforts to achieve high-quality outcomes. This experience deepened my expertise in <strong>machine learning</strong>, data analysis, and <strong>predictive modeling</strong>, while also honing my leadership and project management skills.</p>
-                        <br>
-                        
-                        <p><strong>Key Responsibilities and Skills Employed:</strong></p>
-                        <ul>
-                            <li><strong>Project Management:</strong> Led a team of data scientists and machine learning engineers to ensure project milestones were met.</li>
-                            <li><strong>Data Wrangling:</strong> Used <strong>Pandas</strong> and <strong>NumPy</strong> for data cleaning, preprocessing, and analysis of historical stock data.</li>
-                            <li><strong>Machine Learning Models:</strong> Implemented predictive models using <strong>linear regression</strong> and <strong>time-series forecasting</strong> techniques.</li>
-                            <li><strong>Data Visualization:</strong> Created dynamic visualizations using <strong>Matplotlib</strong> and <strong>Seaborn</strong> to uncover trends and outliers in stock prices.</li>
-                            <li><strong>Collaboration:</strong> Worked closely with team members to combine technical skills and ensure seamless integration of machine learning models into the final analysis.</li>
-                        </ul>
-                        <!-- Research Paper Link placed elegantly here -->
-                        <hr>
-                        <p style="text-align: center;">
-                            <strong><a href="https://github.com/JacksonSong27/Max-Return-Portfolio-Optimizer" target="_blank">View project on GitHub</a></strong>
-                        </p>
+                        <p><strong>IEEE Publication:</strong></p>
+                        <p style="font-style: italic; color: #425BB5; font-size: 15px;">"EmSim: An AI-Driven VR Simulation for Scenario-Based De-Escalation Training in Law Enforcement" - Presented at <strong>IEEE AIxVR 2026</strong> (AIxVR 26)</p>
+                        <p style="color: #7f8c8d; font-size: 14px;">This research was accepted and presented at the IEEE Conference on Artificial Intelligence and Extended Reality (AIxVR), demonstrating innovative applications of AI and VR technology in law enforcement training.</p>
                         <br><br><br><br><br><br><br><br><br><br><br><br>
-                        <br />
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div id="animatedModal7" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal7 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2 style="text-align: left;">CS 124: Introduction to Computer Science I</h2>
-                        <h4>University of Illinois Urbana-Champaign</h4>
-                        <br>
-                        <p><strong>Course Assistant (CA)</strong><br><em>August 2024 - Present</em></p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/m.png" alt="" class="img-responsive" />
-                        <br>
     
-                        <p>As a <strong>Course Assistant (CA)</strong> for <strong>CS 124: Intro to Computer Science I</strong>, I play an essential role in helping students grasp the foundational concepts of computer science. Throughout the semester, I support students as they learn programming languages like <strong>Java</strong> and <strong>Kotlin</strong>, providing guidance on topics such as <strong>data structures</strong>, <strong>algorithms</strong>, and <strong>loops</strong>. Whether it's during labs or coding assignments, I'm there to offer hands-on assistance, break down complex ideas, and help them develop problem-solving skills. I also help students prepare for exams, ensuring they feel confident and prepared for success.</p>
-
-                        <p>Beyond tutoring, I had the opportunity to contribute to a project that involved developing a <strong>Course Rating System</strong> for UIUC. This full-stack project allowed students to rate their courses and professors, providing valuable feedback to improve future course offerings. I worked on building the backend using <strong>Node.js</strong>, setting up the API to handle student feedback and store it in a <strong>MongoDB</strong> database. On the frontend, I collaborated on creating a user-friendly interface with <strong>React.js</strong>, making it easy for students to navigate and submit their ratings seamlessly.</p>
-                        
-                        <p>In addition to my technical contributions, I collaborate closely with the course instructors and fellow TAs to continuously improve the learning experience for students. I'm committed to creating an engaging and supportive environment where students can thrive, helping them build a solid foundation in computer science that will carry them through their academic journey and beyond. It's been rewarding to see how these efforts, both in teaching and developing projects, have positively impacted the students and the course overall.</p>
-                        <br>
-                        
-                        <p><strong>Key Responsibilities and Skills Employed:</strong></p>
-                        <ul>
-                            <li><strong>Tutoring and Support:</strong> Assisted students with understanding core concepts in <strong>Java</strong> and <strong>Kotlin</strong>, including algorithms, data structures, and coding best practices.</li>
-                            <li><strong>Project Development:</strong> Collaborated on developing the <strong>Course Rating System</strong> using <strong>Node.js</strong>, <strong>MongoDB</strong>, and <strong>React.js</strong> to build a full-stack application for student feedback.</li>
-                            <li><strong>Frontend and Backend Development:</strong> Helped implement both backend logic and frontend UI to ensure a smooth user experience for the course rating system.</li>
-                            <li><strong>Collaboration:</strong> Worked closely with course instructors and other TAs to ensure students received timely assistance and support throughout the semester.</li>
-                        <ul>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="animatedModal8" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal8 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>MOONBOOW Studio</h2>
-                        <br>
-                        <p><strong>Research Assistant (Software Developer)</strong><br><em>November 2023 - January 2024</em></p>
-                        <p><strong>Project:</strong> Mixed Reality Experience on Meta Quest 3 with GPT-3.5 Turbo Integration</p>
-
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/c.png" alt="" class="img-responsive" />
-                        <br>
-        
-                        <p>At <strong>MOONBOOW Studio</strong>, I was part of an exciting project that combined cutting-edge <strong>Mixed Reality (MR)</strong> technology with <strong>GPT-3.5 Turbo</strong> to create an immersive, interactive experience. Working closely with a team of developers and researchers, I helped design the backend infrastructure using <strong>Node.js</strong> and <strong>Express.js</strong>. My focus was on ensuring that the system could handle over 100 API requests per second, supporting real-time communication between users and the AI-driven virtual agents within the MR environment.</p>
-
-                        <p>One of my key responsibilities was leading the integration of OpenAI's <strong>GPT-3.5 Turbo</strong> into the project, allowing the virtual agents to engage users in natural, seamless conversations. This conversational AI added a dynamic element to the MR experience, making interactions feel more intuitive and engaging. In addition to the backend work, I also contributed to developing interactive 3D elements in <strong>Unity</strong>, ensuring smooth transitions between the virtual and real worlds. These transitions were crucial in creating an experience that felt fluid and immersive for users.</p>
-                        
-                        <p>To manage user interactions efficiently, I worked on a <strong>MongoDB</strong> database that handled over 10,000 records. Optimizing the database was key to ensuring fast performance and smooth access for all users. Throughout the project, I collaborated with UX researchers, conducting rounds of user testing to gather feedback and improve both functionality and user experience. This iterative process helped us refine the system, ensuring that the MR environment was not only technically sound but also engaging and user-friendly.</p>
-                        
-                        <p>Together with my team, I co-authored a research paper that explores how integrating <strong>Large Language Models (LLMs)</strong> like GPT-3.5 can enhance user interactions in MR environments. The paper, which was submitted to the prestigious <strong>CSCW25 Conference</strong>, offers insights into how LLMs can make virtual agents more responsive and adaptable. Our research highlights the potential of LLMs to transform virtual experiences, making them more interactive, intelligent, and immersive for users.</p>
-                        <br>                        
-                        
-                        <p><strong>Technical Skills Used:</strong></p>
-                        <ul>
-                            <li><strong>Backend Development:</strong> Node.js, Express.js for high-performance API management.</li>
-                            <li><strong>Unity Development:</strong> Created and optimized 3D elements for MR experiences.</li>
-                            <li><strong>Database Management:</strong> MongoDB for managing over 10,000 user interaction records.</li>
-                            <li><strong>API Integration:</strong> Implemented OpenAI GPT-3.5 Turbo for real-time conversational AI.</li>
-                            <li><strong>Performance Optimization:</strong> Scaled API and database performance for efficient real-time interaction.</li>
-                        </ul>
-
-                        <hr>
-
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="animatedModal9" class="popup-modal">
-        <!-- Close button -->
-        <div id="btn-close-modal" class="close-animatedModal9 close-popup-modal">
-            <i class="ion-close-round"></i>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2" style="text-align: justify;">
-                        <h2>Zhejiang Lvkang Medical Care Group Co., Ltd.</h2>
-                        <br>
-                        <p><strong>Software Developer Intern</strong><br><em>June 2024 - August 2024</em></p>
-                        <p><strong>Project:</strong> Elderly Care Management Mini Program</p>
-                        
-                        <!-- Image placed here -->
-                        <br /> <img src="img/portfolio/j.png" alt="" class="img-responsive" />
-                        <br>
-    
-                        <p>During my internship at <strong>Zhejiang Lvkang Medical Care Group Co., Ltd.</strong>, I had the opportunity to collaborate with a talented software engineering team to develop an <strong>Elderly Care Management Mini Program</strong>. This application was created to streamline the care management process in senior care facilities, giving caregivers an efficient way to track and manage the daily needs of elderly residents. The goal was to improve the quality of care by providing caregivers with a user-friendly tool to log critical information and respond to residents' needs in real-time.</p>
-
-                        <p>In my role, I helped build key features of the mini program using <strong>JavaScript</strong>, the <strong>WeChat Mini Program framework</strong>, and <strong>Node.js</strong>. These features allowed caregivers to easily update and track essential information like medical appointments, dietary preferences, and activity schedules, all in real-time. By simplifying this process, we made it easier for caregivers to stay on top of residents' needs and provide timely support. I also worked on backend optimizations, ensuring the system could handle data efficiently and that the user interface remained responsive even during high traffic.</p>
-                        
-                        <p>Working closely with other developers, I played a significant role in improving the system's performance. We focused on optimizing database interactions and streamlining backend processes to ensure the program could handle large amounts of data while maintaining a fast, smooth user experience. This was critical for ensuring that caregivers could access and update information quickly without delays.</p>
-                        
-                        <p>Throughout the project, I was also involved in testing and gathering feedback from caregivers who used the system. By incorporating their input, we made the program more intuitive and tailored to their workflow, ensuring it was easy to use while meeting the demands of a busy care facility. The end result was a more efficient, scalable application that helped caregivers provide better, more timely care to residents.</p>
-                        <br>
-                        
-                        <p><strong>Technical Skills Used:</strong></p>
-                        <ul>
-                            <li><strong>Full Stack Development:</strong> Developed features using <strong>JavaScript</strong>, <strong>Node.js</strong>, and <strong>WeChat Mini Program framework</strong>.</li>
-                            <li><strong>Real-Time Updates:</strong> Integrated real-time data logging and updates to enhance care management.</li>
-                            <li><strong>Team Collaboration:</strong> Worked with a team of software engineers to ensure a smooth and efficient user experience.</li>
-                            <li><strong>Performance Optimization:</strong> Optimized both the frontend and backend for scalability and responsiveness.</li>
-                            <li><strong>Testing and Feedback Collection:</strong> Conducted user testing and implemented feedback to improve the system's functionality and ease of use.</li>
-                        </ul>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Removed extra modals (animatedModal4-9) -->
     
 
 
@@ -808,8 +1172,35 @@
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
 
+    <!-- Selected Work hover effects -->
+    <style>
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(66, 91, 181, 0.2) !important;
+        }
+        .project-card:hover div[style*="background: linear-gradient(135deg, #425BB5"] {
+            background: linear-gradient(135deg, #2d3f6b, #5568d3) !important;
+            transform: scale(1.1);
+        }
+        .project-card a {
+            text-decoration: none;
+        }
+        #selected-work a {
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            #selected-work > div > div > div {
+                grid-template-columns: 1fr;
+            }
+            .project-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+
     <!--  main script  -->
     <script src="js/custom.js"></script>
+    
 </body>
 
 </html>
